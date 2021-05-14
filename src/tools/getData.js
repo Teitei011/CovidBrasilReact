@@ -43,7 +43,7 @@ const fetchData = async (name) => {
   let casesVariation = -100 * (1 - casesMovingAverage[casesMovingAverage.length - 2] / casesMovingAverage[casesMovingAverage.length - 15]);
   let deathsVariation = -100 * (1 - deathsMovingAverage[deathsMovingAverage.length - 2] / deathsMovingAverage[deathsMovingAverage.length - 15]);
 
-
+ console.log(deathVariation);
   // date = await changeDateOrderArray(date);
 
 

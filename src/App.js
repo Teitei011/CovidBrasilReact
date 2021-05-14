@@ -35,6 +35,7 @@ function App() {
 
     setIsLoading(true);
     let buffer = await fetchData(escolha);
+    console.log(`Buffer: ${buffer}`);
     setData(buffer);
     setIsLoading(false);
   }

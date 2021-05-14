@@ -22,15 +22,12 @@ import Header from "./components/Header"
 // Funçoes 
 import fetchData from "./tools/getData";
 
-
-
-
 function App() {
   const [localEscolhido, setLocalEscolhido] = useState("");
   const [selecaoBuffer, setSelecaoBuffer] = useState("");
-  const [data, setData] = useState([]);
+  const [data, setData] = useState();
   // Put a loading option
-  const [loading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   const handleChange = async(escolha) => {
     document.title = escolha;
@@ -67,11 +64,9 @@ function App() {
 
         <MDBBtn rounded color='danger' style={{"margin-bottom": "5 rem"}}onClick={() => handleChange("Brasil")}>Brasil</MDBBtn> <br />
 
-
-
         <CovidCardInfo data={data}/>
 
-      {loading ? "" : <GraphComponents titulo={localEscolhido}  dados={data} />}
+      {isLoading ? "" : <GraphComponents titulo={localEscolhido}  dados={data} />}
       </main>
     </div>
   )

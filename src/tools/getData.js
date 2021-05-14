@@ -17,7 +17,7 @@ const fetchData = async (name) => {
 
   table.forEach((row) => {
     const cols = row.split(",");
-    date.push(change2Dot(cols[1]));
+    date.push((cols[1]));
     cases.push(change2Dot(cols[2]));
     dailyCases.push(change2Dot(cols[3]));
     deaths.push(change2Dot(cols[4]));
@@ -40,8 +40,8 @@ const fetchData = async (name) => {
   casesMovingAverage.pop();
   deathsMovingAverage.pop();
 
-  let casesVariation = -100 * (1 - casesMovingAverage[casesMovingAverage.length - 1] / casesMovingAverage[casesMovingAverage.length - 15]);
-  let deathsVariation = -100 * (1 - deathsMovingAverage[deathsMovingAverage.length - 1] / deathsMovingAverage[deathsMovingAverage.length - 15]);
+  let casesVariation = -100 * (1 - casesMovingAverage[casesMovingAverage.length - 2] / casesMovingAverage[casesMovingAverage.length - 15]);
+  let deathsVariation = -100 * (1 - deathsMovingAverage[deathsMovingAverage.length - 2] / deathsMovingAverage[deathsMovingAverage.length - 15]);
 
 
   // date = await changeDateOrderArray(date);

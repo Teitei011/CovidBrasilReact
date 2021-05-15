@@ -30,9 +30,6 @@ const CovidCardInfo = ({ data }) => {
     return x1 + x2;
   }
 
-
-
-
   if (data) {
 
     totalDeCasos = change2Dot(data.cases[data.cases.length - 1]);

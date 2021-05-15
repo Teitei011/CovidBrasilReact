@@ -2,7 +2,7 @@ import React from "react";
 import { MDBRow, MDBCol } from 'mdb-react-ui-kit';
 import Graph from './Graph'
 
-const GraphComponents = ({ titulo, dados }) => {
+const GraphComponents = ({ titulo,  dados }) => {
   return (
     <MDBRow>
       <MDBCol md='6'>

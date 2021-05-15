@@ -1,4 +1,4 @@
-import React from `react`;
+import React from 'react';
 import { MDBRow, MDBCol } from 'mdb-react-ui-kit';
 import Graph from './Graph'
 

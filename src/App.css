@@ -50,3 +50,7 @@
   font-size: calc(15px + 2vmin);
   color: white;
 }
+
+.small-text{
+  font-size: medium;
+}

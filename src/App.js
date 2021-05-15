@@ -20,6 +20,7 @@ import Header from "./components/Header"
 
 
 // Funçoes 
+
 import fetchData from "./tools/getData";
 
 function App() {

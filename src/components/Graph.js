@@ -2,7 +2,7 @@ import {Bar, Line} from 'react-chartjs-2';
 
 
 const Graph = ({titulo, label, dados}) => {
-  const data = {
+  const data =  {
     labels: label,
     datasets: [
       {
@@ -16,6 +16,9 @@ const Graph = ({titulo, label, dados}) => {
       }
     ]
   };
+
+
+
   
   return (
     <div>

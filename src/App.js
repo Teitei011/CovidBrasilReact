@@ -19,8 +19,8 @@ import Header from "./components/Header"
 import Footer from "./components/footer"
 
 import SelectComponent from "./components/selectComponent";
-import SearchPage from "./components/searchSelectContainer";
-// import SearchComponent from "./components/searchComponentTest"
+// import SelectComponent from "./components/searchSelectContainer";
+import SearchPage from "./components/searchComponentTest"
 // Funçoes 
 
 import fetchData from "./tools/getData";
@@ -61,7 +61,7 @@ function App() {
 
         <h5>Escolha ou digite a cidade</h5>
 
-        {/* <SearchPage /> */}
+        {/* <SearchPage options={cidades} searchOptions={searchOptions} handleChange={handleChange}/> */}
 
         <SelectComponent options={cidades} searchOptions={searchOptions} handleChange={handleChange} /> <br />
 

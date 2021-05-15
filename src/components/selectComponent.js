@@ -4,7 +4,7 @@ const SelectComponent = ({options, searchOptions, handleChange}) => {
   
   return (
     <div class="container col-12">
-
+ 
     <select className="btn" onChange={(e) => handleChange(e.target.value)}>
     <input type='text'
       onChange={(e) => { searchOptions(e.target.value) }} />

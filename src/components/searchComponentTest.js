@@ -1,40 +1,29 @@
 
-import React from "react";
-import Select from 'react-select'
+import React, {useState} from "react";
+import Select from 'react-select';
 
+const SearchOptions = ({options, searchOptions, updateChanges}) =>  {
+  const [state, setState] = useState({selectedOption: ''})
 
-const SearchComponent = ({ data }) => {
-  const [state, setState] = React.useState({
-    selectOptions: [],
-    id: "",
-    name: ''
-  });
-
-
-  const options = data.map(d => ({
-    "value": d.value,
-    "label": d.name
-
-  }))
-
-  setState({ selectOptions: options })
-
-
-  const handleChange = (e) => {
-    setState({ id: e.value, name: e.label })
+  const  handleChange = (selectedOption) => {
+    setState({ selectedOption });
+    if (selectedOption) {
+      console.log(`Selected: ${selectedOption.label}`);
+    }
   }
+    const { selectedOption } =  state;
 
-  const componentDidMount = () => {
-    this.getOptions()
-  }
-
-  return (
-    <div>
-      <Select options={this.state.selectOptions} onChange={this.handleChange.bind(this)} />
-      <p>You have selected <strong>{this.state.name}</strong> whose id is <strong>{this.state.id}</strong></p>
-    </div>
-  );
+    return (
+      <Select
+        name="form-field-name"
+        value={selectedOption}
+        onChange={handleChange}
+        options = {options.map((option) => {
+          return {value: option.value, label: option.name}  
+        })}
+      
+      />
+    );
 }
 
-
-export default SearchComponent;
+export default SearchOptions;

@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from 'react'
-import 'App.css';
+import './App.css';
 
 
 // Design extra
@@ -8,20 +8,20 @@ import { MDBBtn} from 'mdb-react-ui-kit';
 
 
 // Dados estáticos
-import cidades from "data/cidades"
-import estados from "data/estados";
+import cidades from "./data/cidades"
+import estados from "./data/estados";
 
 
 // My Components
-import SelectComponent from "components/selectComponent";
-import CovidCardInfo from "components/covidCardInfo"
-import GraphComponents from "components/GraphsComponent"
-import Header from "components/Header"
+import SelectComponent from "./components/selectComponent";
+import CovidCardInfo from "./components/covidCardInfo"
+import GraphComponents from "./components/GraphsComponent"
+import Header from "./components/Header"
 
 
 // Funçoes 
 
-import fetchData from "tools/getData";
+import fetchData from "./tools/getData";
 
 function App() {
   const [localEscolhido, setLocalEscolhido] = useState("");

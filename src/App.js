@@ -68,7 +68,7 @@ function App() {
 
         <MDBBtn rounded color='danger' style={{ "margin-bottom": "5 rem" }} onClick={() => handleChange("Brasil")}>Brasil</MDBBtn> <br />
 
-        <CovidCardInfo data={data} />
+        <CovidCardInfo data={data} /> <br />
 
         {isLoading ? "" : <GraphComponents titulo={localEscolhido} dados={data} />}
 

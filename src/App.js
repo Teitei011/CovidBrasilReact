@@ -13,13 +13,14 @@ import estados from "./data/estados";
 
 
 // My Components
-import SelectComponent from "./components/selectComponent";
 import CovidCardInfo from "./components/covidCardInfo"
 import GraphComponents from "./components/GraphsComponent"
 import Header from "./components/Header"
 import Footer from "./components/footer"
-// import SelectComponent from "./components/searchSelectContainer";
 
+import SelectComponent from "./components/selectComponent";
+import SearchPage from "./components/searchSelectContainer";
+// import SearchComponent from "./components/searchComponentTest"
 // Funçoes 
 
 import fetchData from "./tools/getData";
@@ -59,6 +60,8 @@ function App() {
         <Header localEscolhido={localEscolhido} />
 
         <h5>Escolha ou digite a cidade</h5>
+
+        {/* <SearchPage /> */}
 
         <SelectComponent options={cidades} searchOptions={searchOptions} handleChange={handleChange} /> <br />
 

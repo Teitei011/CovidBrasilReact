@@ -33,7 +33,7 @@ const CovidCardInfo = ({ data }) => {
   if (data) {
 
     totalDeCasos = change2Dot(data.cases[data.cases.length - 1]);
-    totalDeMortes = change2Dot(data.deaths[data.cases.length - 1]);
+    totalDeMortes = change2Dot(data.deaths[data.deaths.length - 1]);
 
     casesMovingAverage = change2Dot(parseFloat(data.casesMovingAverage[data.casesMovingAverage.length - 1]).toFixed(0));
     deathsMovingAverage =change2Dot(parseFloat(data.deathsMovingAverage[data.deathsMovingAverage.length - 1]).toFixed(0));

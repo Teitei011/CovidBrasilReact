@@ -45,8 +45,14 @@ function App() {
     setSelecaoBuffer(filterOption);
   }
 
+
+
+
+
+
   useEffect(() => {
     document.title = "CoronaBrasil";
+    handleChange("Brasil");
   }, [])
 
   return (

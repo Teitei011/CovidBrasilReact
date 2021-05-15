@@ -1,6 +1,11 @@
 import React from "react";
 
 const fetchData = async (name) => {
+  let fixer = 1
+  if(name === "Brasil"){
+    fixer = 0;
+  } 
+
   const url = "https://teitei011.github.io/covid/brazil/" + name + ".csv";
   const response = await fetch(url);
   const data = await response.text();
@@ -12,19 +17,30 @@ const fetchData = async (name) => {
   const dailyDeaths = [];
   const casesMovingAverage = [];
   const deathsMovingAverage = [];
-  const table = data.split("\n").slice(1);
 
+
+  const convertString2Date = (date) => {
+    try {
+      let parts = date.split('-');
+      return  new Date(parts[0], parts[1] - 1, parts[2]).toDateString(); 
+    } catch (error) {
+      console.log(error);
+    }
+
+  }
+
+  const table = data.split("\n").slice(1);
 
   table.forEach((row) => {
     const cols = row.split(",");
-    date.push((cols[1]));
-    cases.push(change2Dot(cols[2]));
-    dailyCases.push(change2Dot(cols[3]));
-    deaths.push(change2Dot(cols[4]));
-    dailyDeaths.push(change2Dot(cols[5]));
+    date.push(convertString2Date(cols[1+fixer]));
+    cases.push(Number(cols[2+fixer]));
+    dailyCases.push(Number(cols[3+fixer]));
+    deaths.push(Number(cols[4 + fixer]));
+    dailyDeaths.push(Number(cols[5 + fixer]));
 
-    casesMovingAverage.push(change2Dot(cols[6]));
-    deathsMovingAverage.push(change2Dot(cols[7]));
+    casesMovingAverage.push(Number(cols[6]));
+    deathsMovingAverage.push(Number(cols[7]));
 
   });
 
@@ -43,7 +59,6 @@ const fetchData = async (name) => {
   let casesVariation = -100 * (1 - casesMovingAverage[casesMovingAverage.length - 2] / casesMovingAverage[casesMovingAverage.length - 15]);
   let deathsVariation = -100 * (1 - deathsMovingAverage[deathsMovingAverage.length - 2] / deathsMovingAverage[deathsMovingAverage.length - 15]);
 
- console.log(deathVariation);
   // date = await changeDateOrderArray(date);
 
 
@@ -62,23 +77,5 @@ const fetchData = async (name) => {
 
 
 
-
-function change2Dot(nStr) {
-  nStr += '';
-  let x = nStr.split('.');
-  let x1 = x[0];
-  let x2 = x.length > 1 ? '.' + x[1] : '';
-  let rgx = /(\d+)(\d{3})/;
-  while (rgx.test(x1)) {
-    x1 = x1.replace(rgx, '$1' + '.' + '$2');
-  }
-  return x1 + x2;
-}
-
-
-function changeSymbol(value) {
-  return value.replace(".", ',');
-
-}
 
 export default fetchData;

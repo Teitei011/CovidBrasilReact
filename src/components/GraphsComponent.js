@@ -1,6 +1,6 @@
 import React from "react";
 import { MDBRow, MDBCol } from 'mdb-react-ui-kit';
-import Graph from './Graph'
+import Graph from 'Graph'
 
 const GraphComponents = ({ titulo, dados }) => {
   return (

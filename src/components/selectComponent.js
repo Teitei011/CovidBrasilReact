@@ -10,7 +10,7 @@ const SelectComponent = ({options, searchOptions, handleChange}) => {
       onChange={(e) => { searchOptions(e.target.value) }} />
     {
       options.map((option) => {
-        return <option value={option.name}>{option.name}</option>;
+        return <option value={option.value}>{option.name}</option>;
       })
     }
      </select>

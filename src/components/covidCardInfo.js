@@ -1,6 +1,6 @@
 import React from "react";
 import { MDBRow, MDBCol } from 'mdb-react-ui-kit';
-import CardColor from "./cardColor"
+import CardColor from "cardColor"
 
 
 const CovidCardInfo = ({ data }) => {

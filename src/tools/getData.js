@@ -2,9 +2,9 @@ import React from "react";
 
 const fetchData = async (name) => {
   let fixer = 1;
-  if(name === "Brasil"){
+  if (name === "Brasil") {
     fixer = 0;
-  } 
+  }
 
   const url = "https://teitei011.github.io/covid/brazil/" + name + ".csv";
   const response = await fetch(url);
@@ -22,7 +22,7 @@ const fetchData = async (name) => {
   const convertString2Date = (date) => {
     try {
       let parts = date.split('-');
-      return  new Date(parts[0], parts[1] - 1, parts[2]).toDateString(); 
+      return new Date(parts[0], parts[1] - 1, parts[2]).toDateString();
     } catch (error) {
       console.log(error);
     }
@@ -33,14 +33,14 @@ const fetchData = async (name) => {
 
   table.forEach((row) => {
     const cols = row.split(",");
-    date.push(convertString2Date(cols[1+fixer]));
-    cases.push(Number(cols[2+fixer]));
-    dailyCases.push(Number(cols[3+fixer]));
+    date.push(convertString2Date(cols[1 + fixer]));
+    cases.push(Number(cols[2 + fixer]));
+    dailyCases.push(Number(cols[3 + fixer]));
     deaths.push(Number(cols[4 + fixer]));
     dailyDeaths.push(Number(cols[5 + fixer]));
 
-    casesMovingAverage.push(Number(cols[6+fixer]));
-    deathsMovingAverage.push(Number(cols[7+fixer]));
+    casesMovingAverage.push(Number(cols[6]));
+    deathsMovingAverage.push(Number(cols[7]));
 
   });
 

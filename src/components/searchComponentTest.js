@@ -16,11 +16,10 @@ const SearchOptions = ({options, searchOptions, updateChanges}) =>  {
     return (
       <Select
         name="form-field-name"
+        style={{"width":"100"}}
         value={selectedOption}
-        onChange={handleChange}
-        options = {options.map((option) => {
-          return {value: option.value, label: option.name}  
-        })}
+        onChange={(e) =>handleChange(e.target.value)}
+        options = {options}
       
       />
     );

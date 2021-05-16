@@ -20,7 +20,8 @@ import Footer from "./components/footer"
 
 import SelectComponent from "./components/selectComponent";
 // import SelectComponent from "./components/searchSelectContainer";
-import SearchPage from "./components/searchComponentTest"
+import SearchPage from "./components/searchComponentTest";
+
 // Funçoes 
 
 import fetchData from "./tools/getData";
@@ -55,15 +56,12 @@ function App() {
 
   return (
     <div className="App">
-      <main className="App-header">
 
         <Header localEscolhido={localEscolhido} />
 
         <h5>Escolha ou digite a cidade</h5>
 
-        {/* <SearchPage options={cidades} searchOptions={searchOptions} handleChange={handleChange}/> */}
-
-        <SelectComponent options={cidades} searchOptions={searchOptions} handleChange={handleChange} /> <br />
+        <SelectComponent options={cidades} searchOptions={searchOptions} /> <br />
 
         <h5>Ou você pode <br /> Escolher um estado </h5>
 
@@ -77,7 +75,6 @@ function App() {
 
 
         <Footer data={data} />
-      </main>
     </div>
 
   );

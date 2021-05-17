@@ -20,13 +20,11 @@ import Footer from "./components/footer"
 
 import SelectComponent from "./components/searchSelectComponent";
 
-// Funçoes ./components/searchSelectComponent
 
 import fetchData from "./tools/getData";
 
 function App() {
   const [localEscolhido, setLocalEscolhido] = useState("");
-  const [selecaoBuffer, setSelecaoBuffer] = useState("");
   const [data, setData] = useState();
   // Put a loading option
   const [isLoading, setIsLoading] = useState(true);
@@ -42,10 +40,6 @@ function App() {
     setIsLoading(false);
   }
 
-  const searchOptions = (value) => {
-    let filterOption = cidades.filter(cidade => value === cidade);
-    setSelecaoBuffer(filterOption);
-  }
 
   useEffect(() => {
     document.title = "CoronaBrasil";
@@ -57,11 +51,11 @@ function App() {
 
         <Header localEscolhido={localEscolhido} />
 
-        <h5>Escolha ou digite a cidade</h5>
+        <h5>Digite e escolha a cidade</h5>
 
         <SelectComponent className="App-Header" items={cidades} handleChange={handleChange} /> <br />
 
-        <h5>Ou você pode <br /> Escolher um estado </h5>
+        <h5>Ou você pode <br /> Digitar e escolher um estado </h5>
 
         <SelectComponent items={estados} handleChange={handleChange} /><br />
 

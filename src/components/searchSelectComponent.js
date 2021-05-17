@@ -8,7 +8,7 @@ const SelectComponent = ({ items, handleChange }) => {
   };
 
 
-  const handleOnSelect =  (item) => {
+  const handleOnSelect = (item) => {
     console.log(`Handle on Select: ${item}`);
     handleChange(item.name);
   };
@@ -27,8 +27,9 @@ const SelectComponent = ({ items, handleChange }) => {
             onSelect={handleOnSelect}
             onFocus={handleOnFocus}
             autoFocus
-            styling={{ zIndex: 2 }} // To display it on top of the search box below
+            styling={{ zIndex: 1 }} // To display it on top of the search box below
           />
+
         </div>
       </header>
     </div>

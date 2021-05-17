@@ -51,7 +51,7 @@ const estados = [
     value: "SP", name: "São Paulo",
   }, {
     value: "SE", name: "Sergipe",
-  }, { value: "TO", name: "Tocantins"}
+  }, { value: "TO", name: "Tocantins" }
 ]
 
 export default estados;

@@ -51,11 +51,11 @@ function App() {
 
         <Header localEscolhido={localEscolhido} />
 
-        <h5>Digite e escolha a cidade</h5>
+        <h5>Digite e/ou escolha a cidade</h5>
 
         <SelectComponent className="App-Header" items={cidades} handleChange={handleChange} /> <br />
 
-        <h5>Ou você pode <br /> Digitar e escolher um estado </h5>
+        <h5>Ou você pode <br /> Digitar e/ou escolher um estado </h5>
 
         <SelectComponent items={estados} handleChange={handleChange} /><br />
 

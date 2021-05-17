@@ -1,7 +1,7 @@
 import React from "react";
 import { MDBRow, MDBCol } from 'mdb-react-ui-kit';
 import CardColor from "./cardColor"
-
+import "./covidCardInfo.css"
 
 const CovidCardInfo = ({ data }) => {
   let totalDeCasos = 0;

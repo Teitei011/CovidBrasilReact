@@ -1,7 +1,7 @@
 import { ReactSearchAutocomplete } from 'react-search-autocomplete';
 import React from 'react';
 
-const SelectComponent = ({ items, handleChange }) => {
+const SelectComponent = ({ items, placeholder, handleChange }) => {
 
   const handleOnSearch = (string, results) => {
     console.log(string, results);
@@ -27,6 +27,7 @@ const SelectComponent = ({ items, handleChange }) => {
             onSelect={handleOnSelect}
             onFocus={handleOnFocus}
             autoFocus
+            placeholder={placeholder}
             styling={{ zIndex: 1 }} // To display it on top of the search box below
           />
 

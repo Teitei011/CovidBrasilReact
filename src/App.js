@@ -18,9 +18,9 @@ import GraphComponents from "./components/GraphsComponent"
 import Header from "./components/Header"
 import Footer from "./components/footer"
 
-import SelectComponent from "./components/selectComponent";
+// import SelectComponent from "./components/selectComponent";
 // import SelectComponent from "./components/searchSelectContainer";
-import SearchPage from "./components/searchComponentTest";
+import SelectComponent from "./components/searchComponentTest";
 
 // Funçoes 
 
@@ -61,11 +61,11 @@ function App() {
 
         <h5>Escolha ou digite a cidade</h5>
 
-        <SelectComponent options={cidades} searchOptions={searchOptions} /> <br />
+        <SelectComponent className="App-Header" items={cidades} handleChange={handleChange} /> <br />
 
         <h5>Ou você pode <br /> Escolher um estado </h5>
 
-        <SelectComponent options={estados} searchOptions={searchOptions} handleChange={handleChange} /><br />
+        <SelectComponent items={estados} handleChange={handleChange} /><br />
 
         <MDBBtn rounded color='danger' style={{ "margin-bottom": "5 rem" }} onClick={() => handleChange("Brasil")}>Brasil</MDBBtn> <br />
 

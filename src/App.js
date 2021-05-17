@@ -71,7 +71,6 @@ function App() {
 
         {isLoading ? "" : <GraphComponents titulo={localEscolhido} dados={data} />}
 
-
         <Footer data={data} />
     </div>
 

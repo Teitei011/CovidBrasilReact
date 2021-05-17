@@ -1,9 +1,6 @@
 import { ReactSearchAutocomplete } from 'react-search-autocomplete';
 import React from 'react';
 
-
-
-
 const SelectComponent = ({ items, handleChange }) => {
 
   const handleOnSearch = (string, results) => {
@@ -19,8 +16,6 @@ const SelectComponent = ({ items, handleChange }) => {
   const handleOnFocus = () => {
     console.log("Focused");
   };
-
-
 
   return (
     <div>

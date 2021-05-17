@@ -18,11 +18,9 @@ import GraphComponents from "./components/GraphsComponent"
 import Header from "./components/Header"
 import Footer from "./components/footer"
 
-// import SelectComponent from "./components/selectComponent";
-// import SelectComponent from "./components/searchSelectContainer";
-import SelectComponent from "./components/searchComponentTest";
+import SelectComponent from "./components/searchSelectComponent";
 
-// Funçoes 
+// Funçoes ./components/searchSelectComponent
 
 import fetchData from "./tools/getData";
 

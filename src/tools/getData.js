@@ -39,8 +39,8 @@ const fetchData = async (name) => {
     deaths.push(Number(cols[4 + fixer]));
     dailyDeaths.push(Number(cols[5 + fixer]));
 
-    casesMovingAverage.push(Number(cols[6] + fixer));
-    deathsMovingAverage.push(Number(cols[7] + fixer));
+    casesMovingAverage.push(Number(cols[6 + fixer]));
+    deathsMovingAverage.push(Number(cols[7 + fixer]));
 
   });
 

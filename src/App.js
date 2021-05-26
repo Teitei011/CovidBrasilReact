@@ -53,6 +53,9 @@ function App() {
 
         <h5>Digite e/ou escolha a cidade</h5>
 
+
+        <h5>O Ministério da Saúde modificou a forma como os arquivos são enviados, preciso de um tempo pra readaptar o meu código</h5>
+
         <SelectComponent className="App-Header" items={cidades} handleChange={handleChange} /> <br />
 
         <h5>Ou você pode <br /> Digitar e/ou escolher um estado </h5>

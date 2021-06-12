@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.4",
+    "@material-ui/lab": "^4.0.0-alpha.58",
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
@@ -24,6 +25,7 @@
     "react-select2": "^4.0.3",
     "react-windowed-select": "^3.0.0",
     "recharts": "^2.0.9",
+    "styled-components": "^4.4.1",
     "web-vitals": "^1.1.1"
   },
   "scripts": {

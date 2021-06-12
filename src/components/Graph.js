@@ -25,9 +25,6 @@ const Graph = ({titulo, label, dados}) => {
         <h4>{titulo}</h4>
         <Bar
           data={data}
-          width={100}
-          height={50}
-
         />
     </div>
   );

@@ -17,9 +17,29 @@ import Header from "./components/Header";
 import Footer from "./components/footer";
 
 import SelectComponent from "./components/searchSelectComponent";
-import { makeStyles } from "@material-ui/core/styles";
 
 import fetchData from "./tools/getData";
+
+
+const AppContainer = styled.div`
+  text-align: center;
+  background-color: #282c34;
+  display: grid;
+  grid-template-rows: repeat(auto-fill);
+  font-size: 15px;
+  color: white;
+`;
+
+const Container = styled.div`
+  text-align: center;
+  background-color: #282c34;
+  display: grid;
+  grid-template-rows: repeat(auto-fill);
+  font-size: 15px;
+  color: white;
+  justify-content: center;
+  align-items: center;
+`;
 
 const Button = styled.button`
   background-color: #fb3554;
@@ -32,8 +52,6 @@ const Button = styled.button`
     color: white;
   }
 `;
-
-
 
 function App() {
   const [localEscolhido, setLocalEscolhido] = useState("");
@@ -57,46 +75,34 @@ function App() {
     handleChange("Brasil");
   }, []);
 
-  const useStyles = makeStyles({
-    App: {
-      textAlign: "center",
-      backgroundColor: "#282c34",
-      display: "grid",
-      gridTemplateRows: "repeat(auto-fill)",
-      alignItems: "center",
-      justifyContent: "center",
-      fontSize: "15px",
-      color: "white",
-    },
 
-
-  });
-
-  const classes = useStyles();
 
   return (
-    <div className={classes.App}>
+    <AppContainer>
       <Header localEscolhido={localEscolhido} />
-      <h5>Digite e selecione sua cidade</h5>
-      <SelectComponent
-        className="App-Header"
-        items={cidades}
-        handleChange={handleChange}
-      />
-      <h5>
-        Ou você pode <br />Digitar e selecionar o seu estado
-      </h5>
-      <SelectComponent items={estados} handleChange={handleChange} />
-      <br />
 
-
-      <center>
-        <Button onClick={() => handleChange("Brasil")}>
-          <p>Brasil</p>
-        </Button>
-      </center>
-      <br />
-      <CovidCardInfo data={data} /> <br />
+      <Container>
+        <h5>Digite e selecione sua cidade</h5>
+        <SelectComponent
+          style={{ width: "%" }}
+          className="App-Header"
+          items={cidades}
+          handleChange={handleChange}
+        />
+        <h5>
+          Ou você pode <br />
+          Digitar e selecionar o seu estado
+        </h5>
+        <SelectComponent items={estados} handleChange={handleChange} />
+        <br />
+        <center>
+          <Button onClick={() => handleChange("Brasil")}>
+            <p>Brasil</p>
+          </Button>
+        </center>
+        <br />
+        <CovidCardInfo data={data} /> <br />
+      </Container>
       {isLoading ? (
         ""
       ) : (
@@ -106,8 +112,8 @@ function App() {
           dados={data}
         />
       )}
-      <Footer data={data} />
-    </div>
+      {/* <Footer data={data} /> */}
+    </AppContainer>
   );
 }
 

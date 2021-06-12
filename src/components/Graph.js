@@ -16,9 +16,6 @@ const Graph = ({titulo, label, dados}) => {
       }
     ]
   };
-
-
-
   
   return (
     <div>

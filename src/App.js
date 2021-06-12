@@ -112,7 +112,7 @@ function App() {
           dados={data}
         />
       )}
-      {/* <Footer data={data} /> */}
+      <Footer data={data} />
     </AppContainer>
   );
 }

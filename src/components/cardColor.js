@@ -6,11 +6,14 @@ const Container = styled.div`
 `;
 
 const DangerColor = styled.div`
+
   width: 20rem;
   height: 5rem;
   align-items: center;
   background-color:  #fb3554;
   border-radius: 1rem;
+  justify-content: center;
+  align-items: center;
 
 `;
 
@@ -19,6 +22,8 @@ const DarkColor = styled.div`
   height: 5rem;
   background-color:  #262727;
   border-radius: 1rem;
+  justify-content: center;
+  align-items: center;
 
 `;
 
@@ -30,7 +35,6 @@ const DangerCard = ({ color, title, text }) => {
   return (
     <Container>
        <DangerColor >
-         <div style={{height: "1rem"}}/>
         <h5Texts>{title}</h5Texts>
         <h6>{text}</h6>
       </DangerColor>
@@ -44,7 +48,6 @@ const DarkCard = ({  title, text }) => {
   return (
     <Container>
        <DarkColor >
-       <div style={{height: "1rem"}}/>
         <h5Texts>{title}</h5Texts>
         <h6>{text}</h6>
       </DarkColor>

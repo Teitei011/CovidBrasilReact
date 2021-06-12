@@ -46,6 +46,8 @@ const Button = styled.button`
   border-radius: 2rem;
   border: 2px;
   width: 7rem;
+  justify-content: center;
+  align-items: center;
 
   p {
     margin-top: 0.5rem;

@@ -42,12 +42,15 @@ const Container = styled.div`
 `;
 
 const Button = styled.button`
+  display: flex;
+  justify-content: center;
+align-items: center;
+
   background-color: #fb3554;
   border-radius: 2rem;
   border: 2px;
   width: 7rem;
-  justify-content: center;
-  align-items: center;
+
 
   p {
     margin-top: 0.5rem;

@@ -7,6 +7,7 @@ import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import styled from "styled-components";
 
 // Dados estáticos
+
 import cidades from "./data/cidades";
 import estados from "./data/estados";
 

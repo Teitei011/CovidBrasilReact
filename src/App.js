@@ -19,7 +19,7 @@ import Footer from "./components/footer";
 import SelectComponent from "./components/searchSelectComponent";
 
 import fetchData from "./tools/getData";
-import GetDataFromGithub from "./tools/getGithubData";
+// import GetDataFromGithub from "./tools/getGithubData";
 
 
 const AppContainer = styled.div`
@@ -80,7 +80,7 @@ function App() {
     document.title = "CoronaBrasil";
     handleChange("Brasil");
 
-    GetDataFromGithub();
+    // GetDataFromGithub();
   }, []);
 
 

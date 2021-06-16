@@ -66,7 +66,7 @@ const GetDataFromGithub = async () => {
     vaccinated,
     vaccinated_per_100k_inhabitants,
     vaccinated_second,
-    vaccinated_second_per_100k_inhabitants] 
+    vaccinated_second_per_100k_inhabitants]
 
 
     const table = data.split("\n").slice(1);
@@ -74,30 +74,30 @@ const GetDataFromGithub = async () => {
     table.forEach((row) =>{
         const cols = row.split(",");
 
-        date.push(convertString2Date(array[date]));
+        date.push(convertString2Date(cols[array[date]]));
 
         // Cases
-        totalCases.push(Number(array[totalCases]));
-        newCases.push(Number(array[newCases]));
-        totalCasesMS.push(Number(array[totalCasesMS])); //Mudar numeros
+        totalCases.push(Number(cols[array[totalCases]]));
+        newCases.push(Number(cols[array[newCases]]));
+        totalCasesMS.push(Number(cols[array[totalCasesMS]])); //Mudar numeros
 
 
         // Deaths
-        deaths.push(Number(array[deaths])); //Mudar numeros
-        newDeaths.push(Number(array[newDeaths])); 
-        deathsMS.push(Number(array[deathsMS])); 
+        deaths.push(Number(cols[array[deaths]])); //Mudar numeros
+        newDeaths.push(Number(cols[array[newDeaths]])); 
+        deathsMS.push(Number(cols[array[deathsMS])]); 
 
         // Tests
-        tests.push(Number(array[tests])); 
-        tests_per_100k_inhabitants.push(Number(array[tests_per_100k_inhabitants])); 
+        tests.push(Number(cols[array[tests]])); 
+        tests_per_100k_inhabitants.push(Number(cols[array[tests_per_100k_inhabitants]])); 
 
         // Vaccines
-        vaccinated.push(Number(array[vaccinated])); 
-        vaccinated_per_100k_inhabitants.push(Number(array[vaccinated_per_100k_inhabitants])); 
+        vaccinated.push(Number(cols[array[vaccinated])); 
+        vaccinated_per_100k_inhabitants.push(Number(cols[array[vaccinated_per_100k_inhabitants]])); 
 
         // Second Dose
-        vaccinated_second.push(Number(array[vaccinated_second])); 
-        vaccinated_second_per_100k_inhabitants.push(Number(array[vaccinated_second_per_100k_inhabitants])); 
+        vaccinated_second.push(Number(cols[array[vaccinated_second]])); 
+        vaccinated_second_per_100k_inhabitants.push(Number(cols[array[vaccinated_second_per_100k_inhabitants]])); 
 
 
     })

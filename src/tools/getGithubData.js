@@ -45,30 +45,59 @@ const GetDataFromGithub = async () => {
     vaccinated_second,
     vaccinated_second_per_100k_inhabitants = [];
 
+    let array = [epi_week,
+    date,
+    country,
+    state,
+    city,
+    newDeaths,
+    deaths,
+    newCases,
+    totalCases,
+    deathsMS,
+    totalCasesMS,
+    deaths_per_100k_inhabitants,
+    totalCases_per_100k_inhabitants,
+    deaths_by_totalCases,
+    recovered,
+    suspects,
+    tests,
+    tests_per_100k_inhabitants,
+    vaccinated,
+    vaccinated_per_100k_inhabitants,
+    vaccinated_second,
+    vaccinated_second_per_100k_inhabitants] 
+
 
     const table = data.split("\n").slice(1);
 
     table.forEach((row) =>{
         const cols = row.split(",");
 
-        date.push(convertString2Date(cols[1]));
-        totalCases.push(Number(cols[8]));
-        newCases.push(Number(cols[7]));
-        //
-        deaths.push(Number(cols[7])); //Mudar numeros
-        newDeaths.push(Number(cols[7])); 
-        totalCasesMS.push(Number(cols[7])); //Mudar numeros
-        deathsMS.push(Number(cols[7])); 
-        ///
-        tests.push(Number(cols[7])); 
-        tests_per_100k_inhabitants.push(Number(cols[7])); 
+        date.push(convertString2Date(array[date]));
 
-        // 
-        vaccinated.push(Number(cols[7])); 
-        vaccinated_per_100k_inhabitants.push(Number(cols[7])); 
+        // Cases
+        totalCases.push(Number(array[totalCases]));
+        newCases.push(Number(array[newCases]));
+        totalCasesMS.push(Number(array[totalCasesMS])); //Mudar numeros
 
-        vaccinated_second.push(Number(cols[7])); 
-        vaccinated_second_per_100k_inhabitants.push(Number(cols[7])); 
+
+        // Deaths
+        deaths.push(Number(array[deaths])); //Mudar numeros
+        newDeaths.push(Number(array[newDeaths])); 
+        deathsMS.push(Number(array[deathsMS])); 
+
+        // Tests
+        tests.push(Number(array[tests])); 
+        tests_per_100k_inhabitants.push(Number(array[tests_per_100k_inhabitants])); 
+
+        // Vaccines
+        vaccinated.push(Number(array[vaccinated])); 
+        vaccinated_per_100k_inhabitants.push(Number(array[vaccinated_per_100k_inhabitants])); 
+
+        // Second Dose
+        vaccinated_second.push(Number(array[vaccinated_second])); 
+        vaccinated_second_per_100k_inhabitants.push(Number(array[vaccinated_second_per_100k_inhabitants])); 
 
 
     })

@@ -1,6 +1,5 @@
 import React from "react";
 import { DangerCard, DarkCard } from "./cardColor";
-import "./covidCardInfo.css";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -24,47 +23,50 @@ const CovidCardInfo = ({ data }) => {
   let casesVariation = 0;
   let deathsVariation = 0;
 
-  const changeSymbol = (value) => {
-    let newValue = value.replace(".", ",");
-    return newValue;
-  };
-
   const change2Dot = (nStr) => {
-    nStr += "";
-    let x = nStr.split(".");
-    let x1 = x[0];
-    let x2 = x.length > 1 ? "." + x[1] : "";
-    let rgx = /(\d+)(\d{3})/;
-    while (rgx.test(x1)) {
-      x1 = x1.replace(rgx, "$1" + "." + "$2");
-    }
-    return x1 + x2;
+    return new Intl.NumberFormat("de-DE").format(nStr);
   };
 
-  if (data) {
-    totalDeCasos = change2Dot(data.cases[data.cases.length - 1]);
-    totalDeMortes = change2Dot(data.deaths[data.deaths.length - 1]);
+  if (data !== undefined) {
+    let {
+      deaths,
+      totalCases,
+      daily_cases_moving_average,
+      daily_deaths_moving_average,
+    } = data;
 
-    casesMovingAverage = change2Dot(
-      parseFloat(
-        data.casesMovingAverage[data.casesMovingAverage.length - 1]
-      ).toFixed(0)
-    );
-    deathsMovingAverage = change2Dot(
-      parseFloat(
-        data.deathsMovingAverage[data.deathsMovingAverage.length - 1]
-      ).toFixed(0)
-    );
+    totalDeMortes = Object.values(deaths);
+    totalDeCasos = Object.values(totalCases);
+    casesMovingAverage = Object.values(daily_cases_moving_average);
+    deathsMovingAverage = Object.values(daily_deaths_moving_average);
 
-    casesVariation = parseFloat(data.casesVariation).toFixed(2);
+    console.log(deathsMovingAverage)
+
+    casesVariation =
+      -100 *
+      (1 -
+        casesMovingAverage[casesMovingAverage.length - 2] /
+          casesMovingAverage[casesMovingAverage.length - 15]);
+
+    deathsVariation =
+      -100 *
+      (1 -
+        deathsMovingAverage[deathsMovingAverage.length - 2] /
+          deathsMovingAverage[deathsMovingAverage.length - 15]);
+
+    totalDeCasos = change2Dot(totalDeCasos.slice(-2)[1].toFixed(2));
+    totalDeMortes = change2Dot(totalDeMortes.slice(-2)[1].toFixed(2));
+
+    casesMovingAverage = casesMovingAverage[casesMovingAverage.length-2].toFixed(2);
+    deathsMovingAverage = deathsMovingAverage[deathsMovingAverage.length-2].toFixed(2);
+
+    casesVariation = casesVariation.toFixed(2);
     if (casesVariation > 0) casesVariation = "+" + casesVariation + " %";
     else casesVariation = casesVariation + " %";
-    casesVariation = change2Dot(changeSymbol(String(casesVariation)));
 
-    deathsVariation = parseFloat(data.deathsVariation).toFixed(2);
+    deathsVariation = deathsVariation.toFixed(2);
     if (deathsVariation > 0) deathsVariation = "+" + deathsVariation + " %";
     else deathsVariation = deathsVariation + " %";
-    deathsVariation = change2Dot(changeSymbol(String(deathsVariation)));
   }
 
   return (

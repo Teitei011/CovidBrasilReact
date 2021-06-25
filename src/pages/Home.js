@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-// Design extra
-import "mdb-react-ui-kit/dist/css/mdb.min.css";
+import { useParams, useHistory, Link } from "react-router-dom";
 
 import styled from "styled-components";
 
@@ -13,20 +12,22 @@ import estados from "../data/estados";
 import CovidCardInfo from "../components/covidCardInfo";
 import GraphComponents from "../components/GraphsComponent";
 import Header from "../components/Header";
-import Footer from "../components/footer";
 
 import SelectComponent from "../components/searchSelectComponent";
 
-import fetchData from "../tools/getData";
-import {getData} from "../tools/getDataJson"
+import fetchData from "../tools/getGithubData";
 
 const AppContainer = styled.div`
   text-align: center;
   background-color: #282c34;
   display: grid;
   grid-template-rows: repeat(auto-fill);
-  font-size: 15px;
+  font-size: 22px;
   color: white;
+
+  h5{
+    font-size: 18px;
+  }
 `;
 
 const Container = styled.div`
@@ -43,7 +44,7 @@ const Container = styled.div`
 const Button = styled.button`
   display: flex;
   justify-content: center;
-align-items: center;
+  align-items: center;
 
   background-color: #fb3554;
   border-radius: 2rem;
@@ -57,31 +58,33 @@ align-items: center;
   }
 `;
 
-function Home() {
+const  Home = ( {place}) => {
+  const history = useHistory();
+  const { id } = useParams();
+
   const [localEscolhido, setLocalEscolhido] = useState("");
   const [data, setData] = useState();
   // Put a loading option
   const [isLoading, setIsLoading] = useState(true);
 
-  const handleChange = async (escolha) => {
-    document.title = escolha;
-    setLocalEscolhido(escolha);
-
-    setIsLoading(true);
-    let buffer = await fetchData(escolha);
-    console.log(`Buffer: ${buffer}`);
-    setData(buffer);
-    setIsLoading(false);
+  const handleChange = (item) => {
+    history.push(`/${item}`);
   };
+
+  const processData = async (id) =>{
+    setLocalEscolhido(id);
+    setIsLoading(true);
+    let buffer =  await fetchData(id);
+    console.log(`Buffer: ${buffer}`)
+     setData(buffer);
+     setIsLoading(false);
+  }
 
   useEffect(() => {
     document.title = "CoronaBrasil";
-    handleChange("Brasil");
-
-    getData("Brasil")
-  }, []);
-
-
+    processData(id)
+    
+  }, [id]);
 
   return (
     <AppContainer>
@@ -104,12 +107,13 @@ function Home() {
         <SelectComponent items={estados} handleChange={handleChange} />
         <br />
         <center>
-          <Button onClick={() => handleChange("Brasil")}>
+        <Button onClick={() => history.push("/Brasil")}>
             <p>Brasil</p>
           </Button>
         </center>
         <br />
-        <CovidCardInfo data={data} /> <br />
+        <CovidCardInfo data={data} />
+         <br />
       </Container>
       {isLoading ? (
         ""

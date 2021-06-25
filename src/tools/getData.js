@@ -75,7 +75,4 @@ const fetchData = async (name) => {
   };
 }
 
-
-
-
 export default fetchData;

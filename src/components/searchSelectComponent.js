@@ -8,20 +8,10 @@ import IconButton from "@material-ui/core/IconButton";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
 
+import { useHistory, useParams } from "react-router-dom";
+
 const SelectComponent = ({ items, placeholder, handleChange }) => {
   const [value, setValue] = React.useState(null);
-  const handleOnSearch = (string, results) => {
-    console.log(string, results);
-  };
-
-  const handleOnSelect = (item) => {
-    console.log(`Handle on Select: ${item}`);
-    handleChange(item.name);
-  };
-
-  const handleOnFocus = () => {
-    console.log("Focused");
-  };
 
   const useStyles = makeStyles({
     option: {

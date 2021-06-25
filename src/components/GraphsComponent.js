@@ -1,7 +1,6 @@
 import React from "react";
 import Graph from "./Graph";
 
-
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -17,39 +16,50 @@ const Container = styled.div`
 
 const GraphComponents = ({ titulo, dados }) => {
 
+  let {date,totalCases, newCases, deaths, newDeaths, daily_cases_moving_average, daily_deaths_moving_average} = dados;
+
+  date = Object.values(date)
+  totalCases = Object.values(totalCases)
+  newCases = Object.values(newCases)
+  deaths = Object.values(deaths)
+  newDeaths = Object.values(newDeaths)
+  daily_cases_moving_average = Object.values(daily_cases_moving_average)
+  daily_deaths_moving_average = Object.values(daily_deaths_moving_average)
+
+
 
   return (
     <Container>
       <Graph
         titulo={`Total de Casos: ${titulo}`}
-        label={dados.date}
-        dados={dados.cases}
+        label={date}
+        dados={totalCases}
       />
       <Graph
         titulo={`Total de mortes: ${titulo}`}
-        label={dados.date}
-        dados={dados.deaths}
+        label={date}
+        dados={deaths}
       />
 
       <Graph
         titulo={`Casos Diários: ${titulo}`}
-        label={dados.date}
-        dados={dados.dailyCases}
+        label={date}
+        dados={newCases}
       />
       <Graph
         titulo={`Mortes Diárias: ${titulo}`}
-        label={dados.date}
-        dados={dados.dailyDeaths}
+        label={date}
+        dados={newDeaths}
       />
       <Graph
         titulo={`Média Móvel de Casos: ${titulo}`}
-        label={dados.date}
-        dados={dados.casesMovingAverage}
+        label={date}
+        dados={daily_cases_moving_average}
       />
       <Graph
         titulo={`Média Móvel de Mortes: ${titulo} `}
-        label={dados.date}
-        dados={dados.deathsMovingAverage}
+        label={date}
+        dados={daily_deaths_moving_average}
       />
     </Container>
   );

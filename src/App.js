@@ -1,11 +1,14 @@
 import Home from "./pages/Home";
 import Vaccines from "./pages/Vaccines";
+import Error from "./pages/Error"
+
 import Footer from "./components/footer";
 
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import styled from "styled-components";
+
+import { useEffect } from "react";
 
 const AppContainer = styled.div`
   text-align: center;
@@ -19,16 +22,25 @@ const AppContainer = styled.div`
 function App() {
   return (
     <AppContainer>
-      <BrowserRouter>
+      <Router>
         <Switch>
-          <Route to="/" exact>
+          <Route exact path="/" >
             <Home />
           </Route>
-          <Route exact to="/vaccines">
+          <Route exact path="/vaccines">
             <Vaccines />
           </Route>
+          <Route exact path="/:id" >
+            <Home/>
+          </Route>
+          <Route exact path="/vaccines/:id">
+            <Vaccines />
+          </Route>
+          <Route to="*">
+            <Error />
+          </Route>
         </Switch>
-      </BrowserRouter>
+      </Router>
 
       <Footer />
     </AppContainer>

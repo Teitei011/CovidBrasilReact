@@ -4,7 +4,7 @@ const Footer = ({ data }) => {
   return (
     <div className="small-text">
 
-      Dados atualizados no dia: <br /> {!data ? " 24/08/1998" : data.date[data.date.length - 1]}
+      Dados atualizados no dia: <br /> {!data ? " 24/08/1998"  : new Date()}
 
       <br />
       <p> Informações retiradas do Ministério da Saúde, link abaixo: </p>

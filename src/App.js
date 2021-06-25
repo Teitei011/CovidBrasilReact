@@ -39,7 +39,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
-      <Footer />
+      <Footer date={Date()} />
     </AppContainer>
   );
 }

@@ -1,14 +1,12 @@
 import Home from "./pages/Home";
 import Vaccines from "./pages/Vaccines";
 import Error from "./pages/Error"
-
 import Footer from "./components/footer";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import styled from "styled-components";
 
-import { useEffect } from "react";
 
 const AppContainer = styled.div`
   text-align: center;
@@ -41,7 +39,6 @@ function App() {
           </Route>
         </Switch>
       </Router>
-
       <Footer />
     </AppContainer>
   );

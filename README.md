@@ -20,8 +20,7 @@
 
 
 ---
-
-  This site was made to show to eve
+This website was created to show everyone how the covid is being spread in every city/state in Brasil
 
 
 ---

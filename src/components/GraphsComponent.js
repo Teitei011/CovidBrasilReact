@@ -12,7 +12,8 @@ const Container = styled.div`
 
   @media only screen and (min-width: 600px){
       grid-template-columns: repeat(2, 1fr);
-
+      margin-left: 1rem;
+      margin-right: 1rem;
   }
 `;
 

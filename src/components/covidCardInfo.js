@@ -57,8 +57,8 @@ const CovidCardInfo = ({ data }) => {
     totalDeCasos = change2Dot(totalDeCasos.slice(-2)[1].toFixed(2));
     totalDeMortes = change2Dot(totalDeMortes.slice(-2)[1].toFixed(2));
 
-    casesMovingAverage = casesMovingAverage[casesMovingAverage.length-2].toFixed(2);
-    deathsMovingAverage = deathsMovingAverage[deathsMovingAverage.length-2].toFixed(2);
+    casesMovingAverage = change2Dot(casesMovingAverage[casesMovingAverage.length-2].toFixed(2));
+    deathsMovingAverage = change2Dot(deathsMovingAverage[deathsMovingAverage.length-2].toFixed(2));
 
     casesVariation = casesVariation.toFixed(2);
     if (casesVariation > 0) casesVariation = "+" + casesVariation + " %";

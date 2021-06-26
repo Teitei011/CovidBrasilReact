@@ -37,7 +37,7 @@ This website was created to show everyone how the covid is being spread in every
 This project was developed using the following technologies:
 
 - [React](https://reactjs.org)
-- [Gatsby](https://www.gatsbyjs.com/)
+- [NextJs](https://nextjs.org/)
 
 ## 🚀 Getting started
 

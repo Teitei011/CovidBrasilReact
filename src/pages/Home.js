@@ -28,6 +28,13 @@ const AppContainer = styled.div`
   h5{
     font-size: 18px;
   }
+
+
+
+  .graph{
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
 `;
 
 const Container = styled.div`
@@ -56,6 +63,8 @@ const Button = styled.button`
     margin-top: 0.5rem;
     color: white;
   }
+
+
 `;
 
 const  Home = ( {place}) => {

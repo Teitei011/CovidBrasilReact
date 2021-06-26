@@ -16,23 +16,11 @@ import {
 import {
   EmailShareButton,
   FacebookShareButton,
-  HatenaShareButton,
-  InstapaperShareButton,
-  LineShareButton,
   LinkedinShareButton,
-  LivejournalShareButton,
-  MailruShareButton,
-  OKShareButton,
-  PinterestShareButton,
-  PocketShareButton,
   RedditShareButton,
   TelegramShareButton,
-  TumblrShareButton,
   TwitterShareButton,
-  ViberShareButton,
-  VKShareButton,
   WhatsappShareButton,
-  WorkplaceShareButton
 } from "react-share";
 
 
@@ -70,6 +58,7 @@ const Footer = ({ data }) => {
       <br />
       <br />
       <div className="socials">
+  
         <EmailIcon round={true}/>
         <FacebookIcon round={true}/>
         <FacebookMessengerIcon round={true}/>

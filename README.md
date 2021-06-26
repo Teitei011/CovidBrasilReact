@@ -20,8 +20,7 @@
 
 
 ---
-
-  This site was made to show to eve
+This website was created to show everyone how the covid is being spread in every city/state in Brasil
 
 
 ---
@@ -61,4 +60,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE.md) fi
 
 ---
 
-<p align="center">Made with 💜 by Stefan Taiguara>
+<p align="center">Made with 💜 by Stefan Taiguara

@@ -12,7 +12,7 @@ import estados from "../data/estados";
 import CovidCardInfo from "../components/covidCardInfo";
 import GraphComponents from "../components/GraphsComponent";
 import Header from "../components/Header";
-
+import Footer from "../components/Footer";
 import SelectComponent from "../components/searchSelectComponent";
 
 import fetchData from "../tools/getGithubData";
@@ -71,7 +71,7 @@ const  Home = ( {place}) => {
   const history = useHistory();
   const { id } = useParams();
 
-  const [localEscolhido, setLocalEscolhido] = useState("");
+  const [localEscolhido, setLocalEscolhido] = useState("Brasil");
   const [data, setData] = useState();
   // Put a loading option
   const [isLoading, setIsLoading] = useState(true);
@@ -80,19 +80,20 @@ const  Home = ( {place}) => {
     history.push(`/${item}`);
   };
 
-  const processData = async (id) =>{
-    setLocalEscolhido(id);
+  const processData = async (location) =>{
+    setLocalEscolhido(location);
     setIsLoading(true);
-    let buffer =  await fetchData(id);
-    console.log(`Buffer: ${buffer}`)
+    let buffer =  await fetchData(location);
      setData(buffer);
      setIsLoading(false);
   }
 
   useEffect(() => {
     document.title = "CoronaBrasil";
+    if(id === undefined){
+      processData("Brasil")
+    }
     processData(id)
-    
   }, [id]);
 
   return (
@@ -129,10 +130,12 @@ const  Home = ( {place}) => {
       ) : (
         <GraphComponents
           className="graph"
-          titulo={localEscolhido}
+          titulo={!localEscolhido ? "Brasil" : localEscolhido}
           dados={data}
         />
       )}
+
+      <Footer data={data} />
     </AppContainer>
   );
 }

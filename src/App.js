@@ -1,7 +1,7 @@
 import Home from "./pages/Home";
 import Vaccines from "./pages/Vaccines";
 import Error from "./pages/Error"
-import Footer from "./components/footer";
+import Footer from "./components/Footer";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -39,7 +39,6 @@ function App() {
           </Route>
         </Switch>
       </Router>
-      <Footer date={Date()} />
     </AppContainer>
   );
 }

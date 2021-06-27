@@ -12,17 +12,17 @@ import {
   WhatsappIcon,
 } from "react-share";
 
-
 import {
   EmailShareButton,
   FacebookShareButton,
-  LinkedinShareButton,
+  FacebookMessengerShareButton,
   RedditShareButton,
   TelegramShareButton,
   TwitterShareButton,
   WhatsappShareButton,
 } from "react-share";
 
+import { ShareIcon } from "./ShareIcon";
 
 const Wrapper = styled.div`
   display: flex;
@@ -34,10 +34,16 @@ const Wrapper = styled.div`
 
     gap: 2rem;
   }
+  /* 
+  .Demo__some-network {
+    vertical-align: top;
+    display: inline-block;
+    margin-right: 10px;
+    text-align: center;
+  } */
 `;
 
-const Footer = ({ data }) => {
-
+const Footer = ({ data, path }) => {
   return (
     <div className="small-text">
       Dados atualizados no dia: <br /> {data ? " 01/01/1970" : data}
@@ -58,15 +64,25 @@ const Footer = ({ data }) => {
       <br />
       <br />
       <div className="socials">
-  
-        <EmailIcon round={true}/>
-        <FacebookIcon round={true}/>
-        <FacebookMessengerIcon round={true}/>
-        <LinkedinIcon round={true}/>
-        <RedditIcon round={true}/>
-        <TelegramIcon round={true}/>
-        <TwitterIcon round={true}/>
-        <WhatsappIcon round={true}/>
+          <FacebookShareButton url={path} className="Demo__some-network__share-button">
+            <FacebookIcon round={true} />
+          </FacebookShareButton>
+
+          <RedditShareButton url={path} className="Demo__some-network__share-button">
+            <RedditIcon round={true} />
+          </RedditShareButton>
+
+          <TelegramShareButton url={path} className="Demo__some-network__share-button">
+            <TelegramIcon round={true} />
+          </TelegramShareButton>
+
+          <TwitterShareButton url={path} className="Demo__some-network__share-button">
+            <TwitterIcon round={true} />
+          </TwitterShareButton>
+
+          <WhatsappShareButton url={path} className="Demo__some-network__share-button">
+            <WhatsappIcon round={true} />
+          </WhatsappShareButton>
       </div>
     </div>
   );

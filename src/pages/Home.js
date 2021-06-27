@@ -135,7 +135,7 @@ const  Home = ( {place}) => {
         />
       )}
 
-      <Footer data={data} />
+      <Footer data={data}  path={`https://covid-brasil.vercel.app/${localEscolhido}`}/>
     </AppContainer>
   );
 }

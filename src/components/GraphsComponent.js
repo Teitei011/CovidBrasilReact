@@ -10,42 +10,42 @@ const Container = styled.div`
   margin-left: 3rem;
   margin-right: 3rem;
 
-  @media only screen and (min-width: 600px){
-      grid-template-columns: repeat(2, 1fr);
-      margin-left: 1rem;
-      margin-right: 1rem;
+  @media only screen and (min-width: 600px) {
+    grid-template-columns: repeat(2, 1fr);
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
 `;
 
-
-
-  const convertString2Date = (date) => {
-    let newArray = []
-    for (let index = 0; index < date.length; index++) {
-      let parts = date.split('-');
-      return new Date(parts[0], parts[1] - 1, parts[2]).toDateString();
-    }
-      
- 
+const convertString2Date = (date) => {
+  let newArray = [];
+  for (let index = 0; index < date.length; index++) {
+    let parts = date.split("-");
+    return new Date(parts[0], parts[1] - 1, parts[2]).toDateString();
   }
-
+};
 
 const GraphComponents = ({ titulo, dados }) => {
+  let {
+    date,
+    totalCases,
+    newCases,
+    deaths,
+    newDeaths,
+    daily_cases_moving_average,
+    daily_deaths_moving_average,
+  } = dados;
 
-  let {date,totalCases, newCases, deaths, newDeaths, daily_cases_moving_average, daily_deaths_moving_average} = dados;
-
-  date = Object.values(date).map((dia) =>{
-    let parts = dia.split('-');
-      return new Date(parts[0], parts[1] - 1, parts[2]).toDateString()
-  })
-  totalCases = Object.values(totalCases)
-  newCases = Object.values(newCases)
-  deaths = Object.values(deaths)
-  newDeaths = Object.values(newDeaths)
-  daily_cases_moving_average = Object.values(daily_cases_moving_average)
-  daily_deaths_moving_average = Object.values(daily_deaths_moving_average)
-
-
+  date = Object.values(date).map((dia) => {
+    let parts = dia.split("-");
+    return new Date(parts[0], parts[1] - 1, parts[2]).toDateString();
+  });
+  totalCases = Object.values(totalCases);
+  newCases = Object.values(newCases);
+  deaths = Object.values(deaths);
+  newDeaths = Object.values(newDeaths);
+  daily_cases_moving_average = Object.values(daily_cases_moving_average);
+  daily_deaths_moving_average = Object.values(daily_deaths_moving_average);
 
   return (
     <Container>

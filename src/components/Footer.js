@@ -44,9 +44,17 @@ const Wrapper = styled.div`
 `;
 
 const Footer = ({ data, path }) => {
+  let dia = new Date();
+  let mes = dia.getMonth();
+
+  if (mes < 10) {
+    mes = "0" + mes;
+  }
+  let diaFinal = dia.getDate() + "/" + mes + "/" + dia.getFullYear();
+
   return (
     <div className="small-text">
-      Dados atualizados no dia: <br /> {data ? " 01/01/1970" : data}
+      Dados atualizados no dia: <br /> {diaFinal}
       <br />
       <p> Informações retiradas do Ministério da Saúde, link abaixo: </p>
       <p>
@@ -64,25 +72,40 @@ const Footer = ({ data, path }) => {
       <br />
       <br />
       <div className="socials">
-          <FacebookShareButton url={path} className="Demo__some-network__share-button">
-            <FacebookIcon round={true} />
-          </FacebookShareButton>
+        <FacebookShareButton
+          url={path}
+          className="Demo__some-network__share-button"
+        >
+          <FacebookIcon round={true} />
+        </FacebookShareButton>
 
-          <RedditShareButton url={path} className="Demo__some-network__share-button">
-            <RedditIcon round={true} />
-          </RedditShareButton>
+        <RedditShareButton
+          url={path}
+          className="Demo__some-network__share-button"
+        >
+          <RedditIcon round={true} />
+        </RedditShareButton>
 
-          <TelegramShareButton url={path} className="Demo__some-network__share-button">
-            <TelegramIcon round={true} />
-          </TelegramShareButton>
+        <TelegramShareButton
+          url={path}
+          className="Demo__some-network__share-button"
+        >
+          <TelegramIcon round={true} />
+        </TelegramShareButton>
 
-          <TwitterShareButton url={path} className="Demo__some-network__share-button">
-            <TwitterIcon round={true} />
-          </TwitterShareButton>
+        <TwitterShareButton
+          url={path}
+          className="Demo__some-network__share-button"
+        >
+          <TwitterIcon round={true} />
+        </TwitterShareButton>
 
-          <WhatsappShareButton url={path} className="Demo__some-network__share-button">
-            <WhatsappIcon round={true} />
-          </WhatsappShareButton>
+        <WhatsappShareButton
+          url={path}
+          className="Demo__some-network__share-button"
+        >
+          <WhatsappIcon round={true} />
+        </WhatsappShareButton>
       </div>
     </div>
   );

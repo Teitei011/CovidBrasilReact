@@ -25,13 +25,11 @@ const AppContainer = styled.div`
   font-size: 22px;
   color: white;
 
-  h5{
+  h5 {
     font-size: 18px;
   }
 
-
-
-  .graph{
+  .graph {
     margin-left: 2rem;
     margin-right: 2rem;
   }
@@ -58,16 +56,13 @@ const Button = styled.button`
   border: 2px;
   width: 7rem;
 
-
   p {
     margin-top: 0.5rem;
     color: white;
   }
-
-
 `;
 
-const  Home = ( {place}) => {
+const Home = ({ place }) => {
   const history = useHistory();
   const { id } = useParams();
 
@@ -80,27 +75,30 @@ const  Home = ( {place}) => {
     history.push(`/${item}`);
   };
 
-  const processData = async (location) =>{
+  const processData = async (location) => {
     setLocalEscolhido(location);
     setIsLoading(true);
-    let buffer =  await fetchData(location);
-     setData(buffer);
-     setIsLoading(false);
-  }
+    let buffer = await fetchData(location);
+    setData(buffer);
+    setIsLoading(false);
+  };
 
   useEffect(() => {
     document.title = "CoronaBrasil";
-    if(id === undefined){
-      processData("Brasil")
+    if (id === undefined) {
+      processData("Brasil");
     }
-    processData(id)
+    processData(id);
   }, [id]);
 
   return (
     <AppContainer>
-      <br/>
-      <br/>
-      <Header style={{"margin-top": "5rem"}} localEscolhido={localEscolhido} />
+      <br />
+      <br />
+      <Header
+        style={{ "margin-top": "5rem" }}
+        localEscolhido={localEscolhido}
+      />
 
       <Container>
         <h5>Digite e selecione sua cidade</h5>
@@ -117,13 +115,13 @@ const  Home = ( {place}) => {
         <SelectComponent items={estados} handleChange={handleChange} />
         <br />
         <center>
-        <Button onClick={() => history.push("/Brasil")}>
+          <Button onClick={() => history.push("/Brasil")}>
             <p>Brasil</p>
           </Button>
         </center>
         <br />
         <CovidCardInfo data={data} />
-         <br />
+        <br />
       </Container>
       {isLoading ? (
         ""
@@ -135,9 +133,12 @@ const  Home = ( {place}) => {
         />
       )}
 
-      <Footer data={data}  path={`https://covid-brasil.vercel.app/${localEscolhido}`}/>
+      <Footer
+        data={data ? "01/01/1970" : data}
+        path={`https://covid-brasil.vercel.app/${localEscolhido}`}
+      />
     </AppContainer>
   );
-}
+};
 
 export default Home;

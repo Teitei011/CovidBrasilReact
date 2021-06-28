@@ -60,14 +60,14 @@ const GraphsCovidComponent = ({ titulo, dados }) => {
         label={210000000}
         dados={firstDoseData}
         backgroundColor={["rgba(43, 237, 4, 1)", "rgba(43, 237, 4, 0)"]}
-        borderColor={"rgba(255,99,132,1)"}
+        borderColor={"rgba(43, 237, 4, 1)"}
       />
       <PieChart
         titulo={`Segunda Dose: ${titulo}`}
         label={210000000}
         dados={secondDoseData}
         backgroundColor={["rgba(52, 183, 251, 1)", "rgba(52, 183, 251, 0)"]}
-        borderColor={"rgba(255,99,132,1)"}
+        borderColor={"rgba(52, 183, 251, 1)"}
       />
       <BarChart
         titulo={`Primeira Dose: ${titulo}`}

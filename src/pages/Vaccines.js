@@ -9,14 +9,13 @@ import cidades from "../data/cidades";
 import estados from "../data/estados";
 
 // My Components
-import CovidCardInfo from "../components/covidCardInfo";
+import vaccineCardInfo from "../components/vaccineCardInfo";
 import GraphComponents from "../components/GraphsComponent";
-import Header from "../components/Header";
-
+import HeaderVaccines from "../components/HeaderVaccines";
+import Footer from "../components/Footer";
 import SelectComponent from "../components/searchSelectComponent";
 
-import fetchData from "../tools/getGithubData";
-
+import fetchData from "../tools/getData";
 
 const AppContainer = styled.div`
   text-align: center;
@@ -25,10 +24,14 @@ const AppContainer = styled.div`
   grid-template-rows: repeat(auto-fill);
   font-size: 22px;
   color: white;
-  height: 100vh;
 
-  h5{
+  h5 {
     font-size: 18px;
+  }
+
+  .graph {
+    margin-left: 2rem;
+    margin-right: 2rem;
   }
 `;
 
@@ -59,67 +62,75 @@ const Button = styled.button`
   }
 `;
 
-const  Home = ( {place}) => {
+const Home = ({ place }) => {
   const history = useHistory();
   const { id } = useParams();
 
-  const [localEscolhido, setLocalEscolhido] = useState("");
+  const [localEscolhido, setLocalEscolhido] = useState("Brasil");
   const [data, setData] = useState();
   // Put a loading option
   const [isLoading, setIsLoading] = useState(true);
 
-
   const handleChange = (item) => {
-    history.push(`/${item}`);
+    history.push(`/vaccines/${item}`);
   };
 
-  const processData = async (id) =>{
-    setLocalEscolhido(id);
-
+  const processData = async (location) => {
+    setLocalEscolhido(location);
     setIsLoading(true);
-    let buffer =  await fetchData(id);
+    let buffer = await fetchData(location);
     setData(buffer);
     setIsLoading(false);
-    document.title = id;
-  }
+  };
 
   useEffect(() => {
     document.title = "CoronaBrasil";
-    processData(id)
-    
+    if (id === undefined) {
+      processData("Brasil");
+    }
+    processData(id);
   }, [id]);
 
   return (
     <AppContainer>
-      <br/>
-      <br/>
-      <Header style={{"margin-top": "5rem"}} localEscolhido={localEscolhido} />
+      <br />
+      <br />
+      <HeaderVaccines
+        style={{ "margin-top": "5rem" }}
+        localEscolhido={localEscolhido}
+      />
 
       <Container>
-        <h5>Digite e selecione seu estado</h5>
-       
+      <h5>
+          Digite e selecionar o seu estado
+        </h5>
         <SelectComponent items={estados} handleChange={handleChange} />
         <br />
         <center>
-        <Button onClick={() => history.push("/vaccines/Brasil")}>
+          <Button onClick={() => history.push("/vaccines/Brasil")}>
             <p>Brasil</p>
           </Button>
         </center>
         <br />
-        <CovidCardInfo data={data} />
-         <br />
+        <vaccineCardInfo data={data ? data: ""} />
+        <br />
       </Container>
-      {/* {isLoading ? (
+      {isLoading ? (
         ""
       ) : (
         <GraphComponents
           className="graph"
-          titulo={localEscolhido}
+          titulo={!localEscolhido ? "Brasil" : localEscolhido}
           dados={data}
         />
-      )} */}
+      )}
+
+      <Footer
+        data={data ? "01/01/1970" : data}
+        path={`https://covid-brasil.vercel.app/vaccines/${localEscolhido}`}
+      />
     </AppContainer>
   );
-}
+};
 
 export default Home;

@@ -1,4 +1,5 @@
 import React from "react";
+import "./Header.css";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
@@ -22,17 +23,19 @@ const Wrapper = styled.div`
     width: 5rem;
     background: #fb3554;
     border: 0;
+    margin-left: 1rem;
   }
 `;
 
 const Header = ({ localEscolhido }) => {
   return (
     <Wrapper>
-      <div className="spacing" />
-      <h1 className="h1">{localEscolhido ? localEscolhido : "CoronaBrasil"}</h1>
-      <Link to="/vaccines">
-        <button className="button">Vaccines</button>
+      <Link to="/">
+        <button className="button">Cases</button>
       </Link>
+
+      <h1 className="h1">{localEscolhido ? localEscolhido : "CoronaBrasil"}</h1>
+      <div className="spacing" />
     </Wrapper>
   );
 };

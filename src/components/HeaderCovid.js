@@ -1,6 +1,7 @@
 import React from "react";
+import "./Header.css";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
 const Wrapper = styled.div`
   display: flex;
@@ -15,13 +16,14 @@ const Wrapper = styled.div`
     flex: 9;
   }
 
-  button {
+  .button {
     flex: 1;
     border-radius: 15rem;
     height: 5rem;
     width: 5rem;
-    background: #fb3554;
+    background:  #fb3554;
     border: 0;
+    margin-right: 1rem;
   }
 `;
 
@@ -30,9 +32,10 @@ const Header = ({ localEscolhido }) => {
     <Wrapper>
       <div className="spacing" />
       <h1 className="h1">{localEscolhido ? localEscolhido : "CoronaBrasil"}</h1>
-      <Link to="/vaccines">
-        <button className="button">Vaccines</button>
-      </Link>
+      {/* <Link to="/vaccines"> */}
+        <div className="spacing" />
+        {/* <button className="button">Vaccines</button> */}
+      {/* </Link> */}
     </Wrapper>
   );
 };

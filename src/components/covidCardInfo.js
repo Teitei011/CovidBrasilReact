@@ -40,8 +40,6 @@ const CovidCardInfo = ({ data }) => {
     casesMovingAverage = Object.values(daily_cases_moving_average);
     deathsMovingAverage = Object.values(daily_deaths_moving_average);
 
-    console.log(deathsMovingAverage)
-
     casesVariation =
       -100 *
       (1 -

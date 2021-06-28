@@ -11,11 +11,11 @@ import estados from "../data/estados";
 // My Components
 import CovidCardInfo from "../components/covidCardInfo";
 import GraphComponents from "../components/GraphsComponent";
-import Header from "../components/Header";
+import HeaderCovid from "../components/HeaderCovid";
 import Footer from "../components/Footer";
 import SelectComponent from "../components/searchSelectComponent";
 
-import fetchData from "../tools/getGithubData";
+import { fetchData } from "../tools/getData";
 
 const AppContainer = styled.div`
   text-align: center;
@@ -95,7 +95,8 @@ const Home = ({ place }) => {
     <AppContainer>
       <br />
       <br />
-      <Header
+
+      <HeaderCovid
         style={{ "margin-top": "5rem" }}
         localEscolhido={localEscolhido}
       />

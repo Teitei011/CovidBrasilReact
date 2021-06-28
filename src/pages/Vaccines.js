@@ -5,11 +5,10 @@ import styled from "styled-components";
 
 // Dados estáticos
 
-import cidades from "../data/cidades";
 import estados from "../data/estados";
 
 // My Components
-import vaccineCardInfo from "../components/vaccineCardInfo";
+import VaccineCardInfo from "../components/vaccineCardInfo";
 import GraphComponents from "../components/GraphsComponent";
 import HeaderVaccines from "../components/HeaderVaccines";
 import Footer from "../components/Footer";
@@ -62,7 +61,7 @@ const Button = styled.button`
   }
 `;
 
-const Home = ({ place }) => {
+const Vaccines = ({  }) => {
   const history = useHistory();
   const { id } = useParams();
 
@@ -112,10 +111,12 @@ const Home = ({ place }) => {
           </Button>
         </center>
         <br />
-        <vaccineCardInfo data={data ? data: ""} />
         <br />
       </Container>
-      {isLoading ? (
+
+      <VaccineCardInfo data={data} />
+
+      {/* {isLoading ? (
         ""
       ) : (
         <GraphComponents
@@ -123,7 +124,7 @@ const Home = ({ place }) => {
           titulo={!localEscolhido ? "Brasil" : localEscolhido}
           dados={data}
         />
-      )}
+      )} */}
 
       <Footer
         data={data ? "01/01/1970" : data}
@@ -133,4 +134,4 @@ const Home = ({ place }) => {
   );
 };
 
-export default Home;
+export default Vaccines;

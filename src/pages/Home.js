@@ -84,7 +84,7 @@ const Home = ({ place }) => {
   };
 
   useEffect(() => {
-    document.title = "CoronaBrasil";
+    setLocalEscolhido("Brasil")
     if (id === undefined) {
       processData("Brasil");
     }

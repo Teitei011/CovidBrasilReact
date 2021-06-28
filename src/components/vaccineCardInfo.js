@@ -15,45 +15,47 @@ const Row = styled.div`
   gap: 1rem;
 `;
 
-const vaccineCardInfo = ({ data }) => {
-    let vaccinated = 0;
-    let vaccinated_second = 0;
-    let daily_vaccine = 0;
-    let daily_second_vaccine = 0;
-    let vaccinated_moving_average = 0;
-    let vaccinated_second_moving_average = 0;
+const change2Dot = (nStr) => {
+  return new Intl.NumberFormat("de-DE").format(nStr);
+};
 
-  const change2Dot = (nStr) => {
-    return new Intl.NumberFormat("de-DE").format(nStr);
-  };
 
+const VaccineCardInfo = ({ data }) => {
+    let vaccinated_Result = 0;
+    let vaccinated_second_Result = 0;
+    let daily_vaccine_Result = 0;
+    let daily_second_vaccine_Result = 0;
+    let vaccinated_moving_average_Result = 0;
+    let vaccinated_second_moving_average_Result = 0;
+ 
   if (data !== undefined) {
     let {
-      vaccinated_buffer,
-      vaccinated_second_buffer,
-      daily_vaccine_buffer,
-      daily_second_vaccine_buffer,
-      vaccinated_moving_average_buffer,
-      vaccinated_second_moving_average_buffer
+      vaccinated,
+      vaccinated_second,
+      daily_vaccine,
+      daily_second_vaccine,
+      vaccinated_moving_average,
+      vaccinated_second_moving_average
     } = data;
 
-    vaccinated = Object.values(vaccinated_buffer);
-    vaccinated_second = Object.values(vaccinated_second_buffer);
-    daily_vaccine = Object.values(daily_vaccine_buffer);
-    daily_second_vaccine = Object.values(daily_second_vaccine_buffer);
-    vaccinated_moving_average = Object.values(vaccinated_moving_average_buffer);
-    vaccinated_second_moving_average = Object.values(vaccinated_second_moving_average_buffer);
+    vaccinated_Result = Object.values(vaccinated);
+    vaccinated_second_Result = Object.values(vaccinated_second);
+    daily_vaccine_Result = Object.values(daily_vaccine);
+    daily_second_vaccine_Result = Object.values(daily_second_vaccine);
+    vaccinated_moving_average_Result = Object.values(vaccinated_moving_average);
+    vaccinated_second_moving_average_Result = Object.values(vaccinated_second_moving_average);
 
 
-    vaccinated = change2Dot(vaccinated.slice(-2)[1].toFixed(2));
-    vaccinated_second = change2Dot(vaccinated_second.slice(-2)[1].toFixed(2));
+    vaccinated_Result = change2Dot(vaccinated_Result.slice(-2)[1].toFixed(0));
+    vaccinated_second_Result = change2Dot(vaccinated_second_Result.slice(-2)[1].toFixed(0));
 
-    daily_vaccine = change2Dot(daily_vaccine[daily_vaccine.length-2].toFixed(2));
-    daily_second_vaccine = change2Dot(daily_second_vaccine[daily_second_vaccine.length-2].toFixed(2));
+    daily_vaccine_Result = change2Dot(daily_vaccine_Result[daily_vaccine_Result.length-2].toFixed(0));
+    daily_second_vaccine_Result = change2Dot(daily_second_vaccine_Result[daily_second_vaccine_Result.length-2].toFixed(0));
 
 
-    vaccinated_moving_average = change2Dot(vaccinated_second_moving_average[vaccinated_moving_average.length-2].toFixed(2));
-    vaccinated_second_moving_average = change2Dot(vaccinated_second_moving_average[vaccinated_second_moving_average.length-2].toFixed(2));
+    vaccinated_moving_average_Result = change2Dot(vaccinated_second_moving_average_Result[vaccinated_moving_average_Result.length-2].toFixed(0));
+    vaccinated_second_moving_average_Result = change2Dot(vaccinated_second_moving_average_Result[vaccinated_second_moving_average_Result.length-2].toFixed(0));
+
 
 }
 
@@ -62,31 +64,31 @@ const vaccineCardInfo = ({ data }) => {
       <Container>
         <Row>
           <DangerCard
-            title="Total de casos"
-            text={data ? "0" : vaccinated}
+            title="Total da primeira dose"
+            text={ vaccinated_Result}
           />
           <DangerCard
-            title="Média móvel de casos"
-            text={data ? "0" : daily_vaccine}
+            title="Vacinação diária"
+            text={ daily_vaccine_Result}
           />
           <DangerCard
-            title="Variação da Média móvel"
-            text={data ? "0" : vaccinated_moving_average}
+            title="Média móvel da primeira dose"
+            text={vaccinated_moving_average_Result}
           />
         </Row>
 
         <Row>
           <DarkCard
-            title="Total de mortes"
-            text={data ? "0" : vaccinated_second}
+            title="Total da segunda dose"
+            text={vaccinated_second_Result}
           />
           <DarkCard
-            title="Média móvel de mortes"
-            text={data ? "0" : daily_second_vaccine}
+            title="Vacinação diária (2 dose)"
+            text={daily_second_vaccine_Result}
           />
           <DarkCard
-            title="Variação da Média móvel"
-            text={data ? "0" : vaccinated_second_moving_average}
+            title="Média móvel da segunda dose"
+            text={vaccinated_second_moving_average_Result}
           />
         </Row>
       </Container>
@@ -94,4 +96,4 @@ const vaccineCardInfo = ({ data }) => {
   );
 };
 
-export default vaccineCardInfo;
+export default VaccineCardInfo;

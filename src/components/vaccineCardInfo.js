@@ -19,7 +19,6 @@ const change2Dot = (nStr) => {
   return new Intl.NumberFormat("de-DE").format(nStr);
 };
 
-
 const VaccineCardInfo = ({ data }) => {
     let vaccinated_Result = 0;
     let vaccinated_second_Result = 0;
@@ -45,13 +44,11 @@ const VaccineCardInfo = ({ data }) => {
     vaccinated_moving_average_Result = Object.values(vaccinated_moving_average);
     vaccinated_second_moving_average_Result = Object.values(vaccinated_second_moving_average);
 
-
     vaccinated_Result = change2Dot(vaccinated_Result.slice(-2)[1].toFixed(0));
     vaccinated_second_Result = change2Dot(vaccinated_second_Result.slice(-2)[1].toFixed(0));
 
     daily_vaccine_Result = change2Dot(daily_vaccine_Result[daily_vaccine_Result.length-2].toFixed(0));
     daily_second_vaccine_Result = change2Dot(daily_second_vaccine_Result[daily_second_vaccine_Result.length-2].toFixed(0));
-
 
     vaccinated_moving_average_Result = change2Dot(vaccinated_second_moving_average_Result[vaccinated_moving_average_Result.length-2].toFixed(0));
     vaccinated_second_moving_average_Result = change2Dot(vaccinated_second_moving_average_Result[vaccinated_second_moving_average_Result.length-2].toFixed(0));

@@ -1,7 +1,7 @@
-import {Bar, Line} from 'react-chartjs-2';
+import {Bar, Line, Pie} from 'react-chartjs-2';
 
 
-const Graph = ({titulo, label, dados, backgroundColor, borderColor }) => {
+export const BarChart = ({titulo, label, dados, backgroundColor, borderColor }) => {
   const data =  {
     labels: label,
     datasets: [
@@ -26,4 +26,29 @@ const Graph = ({titulo, label, dados, backgroundColor, borderColor }) => {
     </div>
   );
 }
-export default Graph;
+
+export const PieChart = ({titulo, label, dados, backgroundColor, borderColor }) => {
+  const data =  {
+    labels: label,
+    datasets: [
+      {
+        label: titulo,
+        backgroundColor: backgroundColor,
+        borderColor:borderColor,
+        borderWidth: 1,
+        hoverBackgroundColor:backgroundColor,
+        hoverBorderColor: borderColor,
+        data: dados
+      }
+    ]
+  };
+  
+  return (
+    <div>
+        <h4>{titulo}</h4>
+        <Pie
+          data={data}
+        />
+    </div>
+  );
+}

@@ -1,6 +1,8 @@
 import React from "react";
-import Graph from "./Graph";
+import { BarChart, PieChart } from "./Graph";
 import styled from "styled-components";
+
+const POPULATION = 213264842;
 
 const Container = styled.div`
   display: grid;
@@ -45,45 +47,64 @@ const GraphsCovidComponent = ({ titulo, dados }) => {
     vaccinated_second_moving_average
   );
 
+  let firstDoseData = vaccinated.slice(-1);
+  firstDoseData.push(POPULATION);
+
+  let secondDoseData = vaccinated_second.slice(-1);
+  secondDoseData.push(POPULATION);
+
   return (
     <Container>
-      <Graph
+      <PieChart
+        titulo={`Primeira Dose: ${titulo}`}
+        label={210000000}
+        dados={firstDoseData}
+        backgroundColor={["rgba(43, 237, 4, 1)", "rgba(43, 237, 4, 0)"]}
+        borderColor={"rgba(255,99,132,1)"}
+      />
+      <PieChart
+        titulo={`Segunda Dose: ${titulo}`}
+        label={210000000}
+        dados={secondDoseData}
+        backgroundColor={["rgba(52, 183, 251, 1)", "rgba(52, 183, 251, 0)"]}
+        borderColor={"rgba(255,99,132,1)"}
+      />
+      <BarChart
         titulo={`Primeira Dose: ${titulo}`}
         label={date}
         dados={vaccinated}
         backgroundColor={"rgba(255,99,132,0.2)"}
         borderColor={"rgba(255,99,132,1)"}
       />
-      <Graph
+      <BarChart
         titulo={`Segunda Dose: ${titulo}`}
         label={date}
         dados={vaccinated_second}
         backgroundColor={"rgba(255,99,132,0.2)"}
         borderColor={"rgba(255,99,132,1)"}
       />
-
-      <Graph
+      <BarChart
         titulo={`Doses diárias: ${titulo}`}
         label={date}
         dados={daily_vaccine}
         backgroundColor={"rgba(255,99,132,0.2)"}
         borderColor={"rgba(255,99,132,1)"}
       />
-      <Graph
+      <BarChart
         titulo={`Doses diárias (2 dose): ${titulo}`}
         label={date}
         dados={daily_second_vaccine}
         backgroundColor={"rgba(255,99,132,0.2)"}
         borderColor={"rgba(255,99,132,1)"}
       />
-      <Graph
+      <BarChart
         titulo={`Média Móvel de Vacinados (1 dose): ${titulo}`}
         label={date}
         dados={vaccinated_moving_average}
         backgroundColor={"rgba(255,99,132,0.2)"}
         borderColor={"rgba(255,99,132,1)"}
       />
-      <Graph
+      <BarChart
         titulo={`Média Móvel de Vacinados (2 dose): ${titulo} `}
         label={date}
         dados={vaccinated_second_moving_average}

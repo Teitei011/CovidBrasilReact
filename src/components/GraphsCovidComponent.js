@@ -1,5 +1,5 @@
 import React from "react";
-import Graph from "./Graph";
+import { BarChart } from "./Graph";
 
 import styled from "styled-components";
 
@@ -25,7 +25,7 @@ const convertString2Date = (date) => {
   }
 };
 
-const GraphsCovidComponent = ({ titulo, dados }) => {
+const BarChartsCovidComponent = ({ titulo, dados }) => {
   let {
     date,
     totalCases,
@@ -49,14 +49,14 @@ const GraphsCovidComponent = ({ titulo, dados }) => {
 
   return (
     <Container>
-      <Graph
+      <BarChart
         titulo={`Total de Casos: ${titulo}`}
         label={date}
         dados={totalCases}
         backgroundColor={"rgba(255,99,132,0.2)"}
         borderColor={"rgba(255,99,132,1)"}
       />
-      <Graph
+      <BarChart
         titulo={`Total de mortes: ${titulo}`}
         label={date}
         dados={deaths}
@@ -64,28 +64,28 @@ const GraphsCovidComponent = ({ titulo, dados }) => {
         borderColor={"rgba(255,99,132,1)"}
       />
 
-      <Graph
+      <BarChart
         titulo={`Casos Diários: ${titulo}`}
         label={date}
         dados={newCases}
         backgroundColor={"rgba(255,99,132,0.2)"}
         borderColor={"rgba(255,99,132,1)"}
       />
-      <Graph
+      <BarChart
         titulo={`Mortes Diárias: ${titulo}`}
         label={date}
         dados={newDeaths}
         backgroundColor={"rgba(255,99,132,0.2)"}
         borderColor={"rgba(255,99,132,1)"}
       />
-      <Graph
+      <BarChart
         titulo={`Média Móvel de Casos: ${titulo}`}
         label={date}
         dados={daily_cases_moving_average}
         backgroundColor={"rgba(255,99,132,0.2)"}
         borderColor={"rgba(255,99,132,1)"}
       />
-      <Graph
+      <BarChart
         titulo={`Média Móvel de Mortes: ${titulo} `}
         label={date}
         dados={daily_deaths_moving_average}
@@ -96,4 +96,4 @@ const GraphsCovidComponent = ({ titulo, dados }) => {
   );
 };
 
-export default GraphsCovidComponent;
+export default BarChartsCovidComponent;

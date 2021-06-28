@@ -47,28 +47,30 @@ const GraphsCovidComponent = ({ titulo, dados }) => {
     vaccinated_second_moving_average
   );
 
-  let firstDoseData =  [] 
-  firstDoseData.push((vaccinated.slice(-1))*100 / POPULATION);
-  firstDoseData.push(100);
+  let firstDoseData = [];
+  let firstDoseBuffer = Number((vaccinated.slice(-1) * 100) / POPULATION);
+  firstDoseData.push(firstDoseBuffer);
+  firstDoseData.push(100 - firstDoseBuffer);
 
-
-  let secondDoseData =  [] 
-  secondDoseData.push((vaccinated_second.slice(-1))*100 / POPULATION);
-  secondDoseData.push(100);
-
+  let secondDoseData = [];
+  let secondDoseBuffer = Number(
+    (vaccinated_second.slice(-1) * 100) / POPULATION
+  );
+  secondDoseData.push(secondDoseBuffer);
+  secondDoseData.push(100 - secondDoseBuffer);
 
   return (
     <Container>
       <PieChart
-        titulo={`Primeira Dose: ${titulo}`}
-        label={210000000}
+        titulo={`Primeira Dose: ${titulo} %`}
+        label={["Vacinados", "Não vacinados"]}
         dados={firstDoseData}
         backgroundColor={["rgba(43, 237, 4, 1)", "rgba(43, 237, 4, 0)"]}
         borderColor={"rgba(43, 237, 4, 1)"}
       />
       <PieChart
-        titulo={`Segunda Dose: ${titulo}`}
-        label={210000000}
+        titulo={`Segunda Dose: ${titulo} %`}
+        label={["Vacinados", "Não vacinados"]}
         dados={secondDoseData}
         backgroundColor={["rgba(52, 183, 251, 1)", "rgba(52, 183, 251, 0)"]}
         borderColor={"rgba(52, 183, 251, 1)"}

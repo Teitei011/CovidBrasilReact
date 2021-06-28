@@ -50,7 +50,7 @@ const VaccineCardInfo = ({ data }) => {
     daily_vaccine_Result = change2Dot(daily_vaccine_Result[daily_vaccine_Result.length-2].toFixed(0));
     daily_second_vaccine_Result = change2Dot(daily_second_vaccine_Result[daily_second_vaccine_Result.length-2].toFixed(0));
 
-    vaccinated_moving_average_Result = change2Dot(vaccinated_second_moving_average_Result[vaccinated_moving_average_Result.length-2].toFixed(0));
+    vaccinated_moving_average_Result = change2Dot(vaccinated_moving_average_Result[vaccinated_moving_average_Result.length-2].toFixed(0));
     vaccinated_second_moving_average_Result = change2Dot(vaccinated_second_moving_average_Result[vaccinated_second_moving_average_Result.length-2].toFixed(0));
 
 

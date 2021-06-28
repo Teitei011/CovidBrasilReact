@@ -133,7 +133,7 @@ const Vaccines = () => {
 
       <Footer
         data={data ? "01/01/1970" : data}
-        path={`https://covid-brasil.vercel.app/vaccines/${localEscolhido}`}
+        path={`https://covid-brasil.vercel.app/vaccines/`}
       />
     </AppContainer>
   );

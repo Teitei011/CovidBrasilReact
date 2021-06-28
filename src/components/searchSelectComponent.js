@@ -8,7 +8,6 @@ import IconButton from "@material-ui/core/IconButton";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
 
-import { useHistory, useParams } from "react-router-dom";
 
 const SelectComponent = ({ items, placeholder, handleChange }) => {
   const [value, setValue] = React.useState(null);

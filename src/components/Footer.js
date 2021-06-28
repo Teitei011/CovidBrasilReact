@@ -17,7 +17,6 @@ import {
   WhatsappShareButton,
 } from "react-share";
 
-import { ShareIcon } from "./ShareIcon";
 
 const Wrapper = styled.div`
   display: flex;

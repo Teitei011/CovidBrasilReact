@@ -18,13 +18,6 @@ const Container = styled.div`
   }
 `;
 
-const convertString2Date = (date) => {
-  let newArray = [];
-  for (let index = 0; index < date.length; index++) {
-    let parts = date.split("-");
-    return new Date(parts[0], parts[1] - 1, parts[2]).toDateString();
-  }
-};
 
 const GraphsCovidComponent = ({ titulo, dados }) => {
   let {

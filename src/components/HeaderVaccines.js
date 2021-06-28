@@ -34,7 +34,7 @@ const Header = ({ localEscolhido }) => {
         <button className="button">Cases</button>
       </Link>
 
-      <h1 className="h1">{localEscolhido ? localEscolhido : "CoronaBrasil"}</h1>
+      <h1 className="h1">{localEscolhido ? localEscolhido : "Brasil"}</h1>
       <div className="spacing" />
     </Wrapper>
   );

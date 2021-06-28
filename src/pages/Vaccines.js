@@ -24,7 +24,7 @@ import fetchData from "../tools/getData";
 
 const AppContainer = styled.div`
   text-align: center;
-  background-color: #DEFFD7;
+  background-color: #282c34;
   display: grid;
   grid-template-rows: repeat(auto-fill);
   font-size: 22px;
@@ -42,7 +42,7 @@ const AppContainer = styled.div`
 
 const Container = styled.div`
   text-align: center;
-  background-color:#DEFFD7;
+  background-color:#282c34;
   display: grid;
   grid-template-rows: repeat(auto-fill);
   font-size: 15px;

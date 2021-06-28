@@ -32,10 +32,12 @@ const Header = ({ localEscolhido }) => {
     <Wrapper>
       <div className="spacing" />
       <h1 className="h1">{localEscolhido ? localEscolhido : "CoronaBrasil"}</h1>
-      {/* <Link to="/vaccines"> */}
+      
         <div className="spacing" />
-        {/* <button className="button">Vaccines</button> */}
-      {/* </Link> */}
+      
+      {/* <Link to="/vaccines">
+        <button className="button">Vaccines</button>
+      </Link> */}
     </Wrapper>
   );
 };

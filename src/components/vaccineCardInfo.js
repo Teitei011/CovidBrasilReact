@@ -1,5 +1,5 @@
 import React from "react";
-import { DangerCard, DarkCard } from "./cardColor";
+import { SecondDoseCard, FirstDoseCard } from "./VaccineCardColor";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -63,30 +63,30 @@ const VaccineCardInfo = ({ data }) => {
     <center>
       <Container>
         <Row>
-          <DangerCard
+          <FirstDoseCard
             title="Total da primeira dose"
             text={ vaccinated_Result}
           />
-          <DangerCard
+          <FirstDoseCard
             title="Vacinação diária"
             text={ daily_vaccine_Result}
           />
-          <DangerCard
+          <FirstDoseCard
             title="Média móvel da primeira dose"
             text={vaccinated_moving_average_Result}
           />
         </Row>
 
         <Row>
-          <DarkCard
+          <SecondDoseCard
             title="Total da segunda dose"
             text={vaccinated_second_Result}
           />
-          <DarkCard
+          <SecondDoseCard
             title="Vacinação diária (2 dose)"
             text={daily_second_vaccine_Result}
           />
-          <DarkCard
+          <SecondDoseCard
             title="Média móvel da segunda dose"
             text={vaccinated_second_moving_average_Result}
           />

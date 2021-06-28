@@ -9,16 +9,22 @@ import estados from "../data/estados";
 
 // My Components
 import VaccineCardInfo from "../components/vaccineCardInfo";
-import GraphComponents from "../components/GraphsComponent";
+import GraphVaccinesComponents from "../components/GraphVaccinesComponents";
 import HeaderVaccines from "../components/HeaderVaccines";
 import Footer from "../components/Footer";
 import SelectComponent from "../components/searchSelectComponent";
 
 import fetchData from "../tools/getData";
 
+
+// Cores 
+// Verdinho azulado : #34fbdb
+// Azul> #34B7FB
+// Verdinho claro: #34FB78
+
 const AppContainer = styled.div`
   text-align: center;
-  background-color: #282c34;
+  background-color: #DEFFD7;
   display: grid;
   grid-template-rows: repeat(auto-fill);
   font-size: 22px;
@@ -36,7 +42,7 @@ const AppContainer = styled.div`
 
 const Container = styled.div`
   text-align: center;
-  background-color: #282c34;
+  background-color:#DEFFD7;
   display: grid;
   grid-template-rows: repeat(auto-fill);
   font-size: 15px;
@@ -50,7 +56,7 @@ const Button = styled.button`
   justify-content: center;
   align-items: center;
 
-  background-color: #fb3554;
+  background-color: #fff;
   border-radius: 2rem;
   border: 2px;
   width: 7rem;
@@ -61,7 +67,7 @@ const Button = styled.button`
   }
 `;
 
-const Vaccines = ({  }) => {
+const Vaccines = () => {
   const history = useHistory();
   const { id } = useParams();
 
@@ -83,7 +89,7 @@ const Vaccines = ({  }) => {
   };
 
   useEffect(() => {
-    document.title = "CoronaBrasil";
+    document.title = "Vacina Brasil";
     if (id === undefined) {
       processData("Brasil");
     }
@@ -98,33 +104,32 @@ const Vaccines = ({  }) => {
         style={{ "margin-top": "5rem" }}
         localEscolhido={localEscolhido}
       />
-
       <Container>
-      <h5>
+      {/* <h5>
           Digite e selecionar o seu estado
         </h5>
         <SelectComponent items={estados} handleChange={handleChange} />
-        <br />
-        <center>
+        <br /> */}
+        {/* <center>
           <Button onClick={() => history.push("/vaccines/Brasil")}>
             <p>Brasil</p>
           </Button>
-        </center>
+        </center> */}
         <br />
         <br />
       </Container>
 
       <VaccineCardInfo data={data} />
 
-      {/* {isLoading ? (
+      {isLoading ? (
         ""
       ) : (
-        <GraphComponents
+        <GraphVaccinesComponents
           className="graph"
           titulo={!localEscolhido ? "Brasil" : localEscolhido}
           dados={data}
         />
-      )} */}
+      )}
 
       <Footer
         data={data ? "01/01/1970" : data}

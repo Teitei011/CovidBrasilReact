@@ -4,13 +4,12 @@ import { useParams, useHistory, Link } from "react-router-dom";
 import styled from "styled-components";
 
 // Dados estáticos
-
 import cidades from "../data/cidades";
 import estados from "../data/estados";
 
 // My Components
 import CovidCardInfo from "../components/covidCardInfo";
-import GraphComponents from "../components/GraphsComponent";
+import GraphsCovidComponent from "../components/GraphsCovidComponent";
 import HeaderCovid from "../components/HeaderCovid";
 import Footer from "../components/Footer";
 import SelectComponent from "../components/searchSelectComponent";
@@ -127,7 +126,7 @@ const Home = ({ place }) => {
       {isLoading ? (
         ""
       ) : (
-        <GraphComponents
+        <GraphsCovidComponent
           className="graph"
           titulo={!localEscolhido ? "Brasil" : localEscolhido}
           dados={data}

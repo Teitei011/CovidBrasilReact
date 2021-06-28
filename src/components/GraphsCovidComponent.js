@@ -25,7 +25,7 @@ const convertString2Date = (date) => {
   }
 };
 
-const GraphComponents = ({ titulo, dados }) => {
+const GraphsCovidComponent = ({ titulo, dados }) => {
   let {
     date,
     totalCases,
@@ -53,35 +53,47 @@ const GraphComponents = ({ titulo, dados }) => {
         titulo={`Total de Casos: ${titulo}`}
         label={date}
         dados={totalCases}
+        backgroundColor={"rgba(255,99,132,0.2)"}
+        borderColor={"rgba(255,99,132,1)"}
       />
       <Graph
         titulo={`Total de mortes: ${titulo}`}
         label={date}
         dados={deaths}
+        backgroundColor={"rgba(255,99,132,0.2)"}
+        borderColor={"rgba(255,99,132,1)"}
       />
 
       <Graph
         titulo={`Casos Diários: ${titulo}`}
         label={date}
         dados={newCases}
+        backgroundColor={"rgba(255,99,132,0.2)"}
+        borderColor={"rgba(255,99,132,1)"}
       />
       <Graph
         titulo={`Mortes Diárias: ${titulo}`}
         label={date}
         dados={newDeaths}
+        backgroundColor={"rgba(255,99,132,0.2)"}
+        borderColor={"rgba(255,99,132,1)"}
       />
       <Graph
         titulo={`Média Móvel de Casos: ${titulo}`}
         label={date}
         dados={daily_cases_moving_average}
+        backgroundColor={"rgba(255,99,132,0.2)"}
+        borderColor={"rgba(255,99,132,1)"}
       />
       <Graph
         titulo={`Média Móvel de Mortes: ${titulo} `}
         label={date}
         dados={daily_deaths_moving_average}
+        backgroundColor={"rgba(255,99,132,0.2)"}
+        borderColor={"rgba(255,99,132,1)"}
       />
     </Container>
   );
 };
 
-export default GraphComponents;
+export default GraphsCovidComponent;

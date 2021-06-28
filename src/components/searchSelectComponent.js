@@ -37,6 +37,7 @@ const SelectComponent = ({ items, placeholder, handleChange }) => {
       disableClearable
       value={value}
       options={items.map((option) => option.name)}
+      alt={items.map((option) => option.name)}
       onChange={(event, newValue) => handleChange(newValue)}
       renderInput={(params) => (
         <TextField

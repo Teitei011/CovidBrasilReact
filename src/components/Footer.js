@@ -53,19 +53,20 @@ const Footer = ({ data, path }) => {
       <br />
       <p> Informações retiradas do Ministério da Saúde, link abaixo: </p>
       <p>
-        {" "}
         <a href="http://covid.saude.gov.br/">Source</a>
       </p>
       Total de visitas: <br />
-      {/* <img
+      <img
         src="https://profile-counter.glitch.me/Teitei011/count.svg"
         alt="Contador de Visitas"
-      ></img> */}
+      ></img>
       <br />
       <p> Bugs, comentários ou sugestões? </p> <br />
       <a href="mailto: stefantleal14@gmail.com">Me mande um email!</a>
       <br />
       <br />
+
+      <p>Quer mostrar como está o covid para amigos/familiares? Clica aqui!</p>
       <div className="socials">
         <FacebookShareButton
           url={path}

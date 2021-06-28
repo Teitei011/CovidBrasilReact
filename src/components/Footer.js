@@ -40,7 +40,7 @@ const Wrapper = styled.div`
 
 const Footer = ({ data, path }) => {
   let dia = new Date();
-  let mes = dia.getMonth();
+  let mes = dia.getMonth() + 1;
 
   if (mes < 10) {
     mes = "0" + mes;

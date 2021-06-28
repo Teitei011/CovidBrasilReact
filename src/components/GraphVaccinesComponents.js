@@ -25,23 +25,25 @@ const convertString2Date = (date) => {
 };
 
 const GraphsCovidComponent = ({ titulo, dados }) => {
-    let {
-        date,
-        vaccinated,
-        vaccinated_second,
-        daily_vaccine,
-        daily_second_vaccine,
-        vaccinated_moving_average,
-        vaccinated_second_moving_average
-      } = dados;
-  
-      date = Object.values(date)
-      vaccinated = Object.values(vaccinated);
-      vaccinated_second = Object.values(vaccinated_second);
-      daily_vaccine = Object.values(daily_vaccine);
-      daily_second_vaccine = Object.values(daily_second_vaccine);
-      vaccinated_moving_average = Object.values(vaccinated_moving_average);
-      vaccinated_second_moving_average = Object.values(vaccinated_second_moving_average);
+  let {
+    date,
+    vaccinated,
+    vaccinated_second,
+    daily_vaccine,
+    daily_second_vaccine,
+    vaccinated_moving_average,
+    vaccinated_second_moving_average,
+  } = dados;
+
+  date = Object.values(date);
+  vaccinated = Object.values(vaccinated);
+  vaccinated_second = Object.values(vaccinated_second);
+  daily_vaccine = Object.values(daily_vaccine);
+  daily_second_vaccine = Object.values(daily_second_vaccine);
+  vaccinated_moving_average = Object.values(vaccinated_moving_average);
+  vaccinated_second_moving_average = Object.values(
+    vaccinated_second_moving_average
+  );
 
   return (
     <Container>
@@ -49,32 +51,44 @@ const GraphsCovidComponent = ({ titulo, dados }) => {
         titulo={`Primeira Dose: ${titulo}`}
         label={date}
         dados={vaccinated}
+        backgroundColor={"rgba(255,99,132,0.2)"}
+        borderColor={"rgba(255,99,132,1)"}
       />
       <Graph
         titulo={`Segunda Dose: ${titulo}`}
         label={date}
         dados={vaccinated_second}
+        backgroundColor={"rgba(255,99,132,0.2)"}
+        borderColor={"rgba(255,99,132,1)"}
       />
 
       <Graph
         titulo={`Doses diárias: ${titulo}`}
         label={date}
         dados={daily_vaccine}
+        backgroundColor={"rgba(255,99,132,0.2)"}
+        borderColor={"rgba(255,99,132,1)"}
       />
       <Graph
         titulo={`Doses diárias (2 dose): ${titulo}`}
         label={date}
         dados={daily_second_vaccine}
+        backgroundColor={"rgba(255,99,132,0.2)"}
+        borderColor={"rgba(255,99,132,1)"}
       />
       <Graph
         titulo={`Média Móvel de Vacinados (1 dose): ${titulo}`}
         label={date}
         dados={vaccinated_moving_average}
+        backgroundColor={"rgba(255,99,132,0.2)"}
+        borderColor={"rgba(255,99,132,1)"}
       />
       <Graph
         titulo={`Média Móvel de Vacinados (2 dose): ${titulo} `}
         label={date}
         dados={vaccinated_second_moving_average}
+        backgroundColor={"rgba(255,99,132,0.2)"}
+        borderColor={"rgba(255,99,132,1)"}
       />
     </Container>
   );

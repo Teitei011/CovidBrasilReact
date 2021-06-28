@@ -20,11 +20,22 @@ import {
 
 const Wrapper = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: center;
+    align-items: center;
+    align-content: center;
+
+  .img{
+    max-width: 20rem;
+
+
+  }
 
   .socials {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 
     gap: 2rem;
   }
@@ -47,7 +58,7 @@ const Footer = ({ data, path }) => {
   let diaFinal = dia.getDate() + "/" + mes + "/" + dia.getFullYear();
 
   return (
-    <div className="small-text">
+    <Wrapper>
       Dados atualizados no dia: <br /> {diaFinal}
       <br />
       <p> Informações retiradas do Ministério da Saúde, link abaixo: </p>
@@ -56,6 +67,7 @@ const Footer = ({ data, path }) => {
       </p>
       Total de visitas: <br />
       <img
+        className="img"
         src="https://profile-counter.glitch.me/Teitei011/count.svg"
         alt="Contador de Visitas"
       ></img>
@@ -65,7 +77,7 @@ const Footer = ({ data, path }) => {
       <br />
       <br />
 
-      <p>Quer mostrar como está o covid para amigos/familiares? Clica aqui!</p>
+      <p>Quer mostrar como está o covid para amigos/familiares? Clique aqui!</p>
       <div className="socials">
         <FacebookShareButton
           url={path}
@@ -102,7 +114,7 @@ const Footer = ({ data, path }) => {
           <WhatsappIcon round={true} />
         </WhatsappShareButton>
       </div>
-    </div>
+    </Wrapper>
   );
 };
 

@@ -16,7 +16,7 @@ const Row = styled.div`
 `;
 
 const change2Dot = (nStr) => {
-  return new Intl.NumberFormat("de-DE").format(nStr);
+  return new Intl.NumberFormat("pt-BR").format(nStr);
 };
 
 const VaccineCardInfo = ({ data }) => {

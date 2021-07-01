@@ -17,67 +17,83 @@ import {
   WhatsappShareButton,
 } from "react-share";
 
-
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-    align-items: center;
-    align-content: center;
+  align-items: center;
+  align-content: center;
 
-  .img{
-    max-width: 20rem;
+  margin-top: 5rem;
 
-
-  }
-
-  .socials {
+  .info {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    /* justify-content: space-between; */
+    gap: 20rem;
+
+  }
+
+  .img {
+    max-width: 20rem;
+  }
+
+  .socials {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: space-between;
+    justify-content: space-between;
 
     gap: 2rem;
   }
-  /* 
-  .Demo__some-network {
-    vertical-align: top;
-    display: inline-block;
-    margin-right: 10px;
-    text-align: center;
-  } */
+
 `;
 
 const Footer = ({ data, path }) => {
   let dia = new Date();
   let mes = dia.getMonth() + 1;
-
+  let  diaAtual = dia.getDate()
   if (mes < 10) {
     mes = "0" + mes;
+  } 
+
+  if  (diaAtual < 10){
+    diaAtual = "0"  + diaAtual
   }
-  let diaFinal = dia.getDate() + "/" + mes + "/" + dia.getFullYear();
+  let diaFinal = diaAtual + "/" + mes + "/" + dia.getFullYear();
 
   return (
     <Wrapper>
       Dados atualizados no dia: <br /> {diaFinal}
-      <br />
-      <p> Informações retiradas do Ministério da Saúde, link abaixo: </p>
-      <p>
-        <a href="http://covid.saude.gov.br/">Source</a>
-      </p>
-      Total de visitas: <br />
-      <img
-        className="img"
-        src="https://profile-counter.glitch.me/Teitei011/count.svg"
-        alt="Contador de Visitas"
-      ></img>
-      <br />
-      <p> Bugs, comentários ou sugestões? </p> <br />
-      <a href="mailto: stefantleal14@gmail.com">Me mande um email!</a>
-      <br />
-      <br />
+      <div className="info">
+        <div className="">
+          <p>
+            <a href="http://covid.saude.gov.br/">Source</a>
+          </p>
+        </div>
 
-      <p>Quer mostrar como está o covid para amigos/familiares? Clique aqui!</p>
+        <div className="">
+          Total de visitas: <br />
+          <img
+            className="img"
+            src="https://profile-counter.glitch.me/Teitei011/count.svg"
+            alt="Contador de Visitas"
+          ></img>
+        </div>
+
+        
+      </div>
+
+      <div className="">
+          <p> Bugs, comentários ou sugestões? </p> <br />
+          <a href="mailto: stefantleal14@gmail.com">Me mande um email!</a>
+        </div>
+      <p>
+        Quer mostrar como está a situação do covid para amigos/familiares?
+        Clique aqui para compartilhar!
+      </p>
       <div className="socials">
         <FacebookShareButton
           url={path}

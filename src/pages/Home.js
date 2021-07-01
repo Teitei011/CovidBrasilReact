@@ -55,6 +55,8 @@ const Button = styled.button`
   border: 2px;
   width: 7rem;
 
+  margin: 2rem;
+
   p {
     margin-top: 0.5rem;
     color: white;

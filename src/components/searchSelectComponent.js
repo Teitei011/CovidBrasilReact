@@ -8,7 +8,6 @@ import IconButton from "@material-ui/core/IconButton";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
 
-
 const SelectComponent = ({ items, placeholder, handleChange }) => {
   const [value, setValue] = React.useState(null);
 
@@ -51,7 +50,9 @@ const SelectComponent = ({ items, placeholder, handleChange }) => {
             color: "primary",
             endAdornment: (
               <InputAdornment>
-                <IconButton>
+                <IconButton
+                  onChange={(event, newValue) => handleChange(newValue)}
+                >
                   <SearchIcon />
                 </IconButton>
               </InputAdornment>

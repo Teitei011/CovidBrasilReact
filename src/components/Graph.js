@@ -2,6 +2,8 @@ import {Bar, Line, Pie} from 'react-chartjs-2';
 
 
 export const BarChart = ({titulo, label, dados, backgroundColor, borderColor }) => {
+
+
   const data =  {
     labels: label,
     datasets: [
@@ -14,7 +16,15 @@ export const BarChart = ({titulo, label, dados, backgroundColor, borderColor }) 
         hoverBorderColor: borderColor,
         data: dados
       }
-    ]
+    ],
+    options: {
+      locale:  "pt-BR	",
+      legend: {
+        display:false,
+        responsive: false,
+      },
+      
+    }
   };
   
   return (
@@ -27,7 +37,9 @@ export const BarChart = ({titulo, label, dados, backgroundColor, borderColor }) 
   );
 }
 
+
 export const PieChart = ({titulo, label, dados, backgroundColor, borderColor }) => {
+
   const data =  {
     labels: label,
     datasets: [
@@ -40,7 +52,15 @@ export const PieChart = ({titulo, label, dados, backgroundColor, borderColor }) 
         hoverBorderColor: borderColor,
         data: dados
       }
-    ]
+    ],
+    options: {
+      legend: {
+        display:false,
+        responsive: false,
+      },
+      locale:  "pt-BR"
+      
+    }
   };
   
   return (

@@ -24,7 +24,7 @@ const CovidCardInfo = ({ data }) => {
   let deathsVariation = 0;
 
   const change2Dot = (nStr) => {
-    return new Intl.NumberFormat("de-DE").format(nStr);
+    return new Intl.NumberFormat("pt-BR").format(nStr);
   };
 
   if (data !== undefined) {

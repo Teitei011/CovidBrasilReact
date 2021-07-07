@@ -64,6 +64,13 @@ const Footer = ({ data, path }) => {
   }
   let diaFinal = diaAtual + "/" + mes + "/" + dia.getFullYear();
 
+ let url = path 
+	if (path ===  undefinied){
+
+		url = "Brasil"
+
+	}
+
   return (
     <Wrapper>
       Dados atualizados no dia: <br /> {diaFinal}

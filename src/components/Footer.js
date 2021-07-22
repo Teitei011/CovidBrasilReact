@@ -59,6 +59,12 @@ const Footer = ({ data, path }) => {
     mes = "0" + mes;
   } 
 
+
+if(dia.getHours() < 19){
+  diaAtual -= 1;
+}
+
+
   if  (diaAtual < 10){
     diaAtual = "0"  + diaAtual
   }

@@ -40,6 +40,8 @@ const BarChartsCovidComponent = ({ titulo, dados }) => {
     let parts = dia.split("-");
     return new Date(parts[0], parts[1] - 1, parts[2]).toDateString();
   });
+
+  console.log(date)
   totalCases = Object.values(totalCases);
   newCases = Object.values(newCases);
   deaths = Object.values(deaths);

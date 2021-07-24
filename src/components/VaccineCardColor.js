@@ -9,7 +9,7 @@ const FirstDose = styled.div`
   flex-direction: column;
   max-width: 30rem;
   max-height: 10rem;
-  background-color:  #2BED04;
+  background-color: #fb3554;
   border-radius: 1rem;
   align-items: center;
 
@@ -21,7 +21,7 @@ const SecondDose = styled.div`
 
   max-width: 30rem;
   max-height: 10rem;
-  background-color: #34B7FB ;
+  background-color: #262727 ;
   border-radius: 1rem;
 
 `;

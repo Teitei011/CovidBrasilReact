@@ -32,7 +32,6 @@ const Wrapper = styled.div`
     align-items: center;
     /* justify-content: space-between; */
     gap: 20rem;
-
   }
 
   .img {
@@ -48,34 +47,29 @@ const Wrapper = styled.div`
 
     gap: 2rem;
   }
-
 `;
 
 const Footer = ({ data, path }) => {
   let dia = new Date();
   let mes = dia.getMonth() + 1;
-  let  diaAtual = dia.getDate()
+  let diaAtual = dia.getDate();
   if (mes < 10) {
     mes = "0" + mes;
-  } 
+  }
 
+  if (dia.getHours() < 19) {
+    diaAtual -= 1;
+  }
 
-if(dia.getHours() < 19){
-  diaAtual -= 1;
-}
-
-
-  if  (diaAtual < 10){
-    diaAtual = "0"  + diaAtual
+  if (diaAtual < 10) {
+    diaAtual = "0" + diaAtual;
   }
   let diaFinal = diaAtual + "/" + mes + "/" + dia.getFullYear();
 
- let url = path 
-	if (path ===  undefined){
-
-		url = "Brasil"
-
-	}
+  let url = path;
+  if (path === undefined) {
+    url = "Brasil";
+  }
 
   return (
     <Wrapper>
@@ -95,14 +89,11 @@ if(dia.getHours() < 19){
             alt="Contador de Visitas"
           ></img>
         </div>
-
-        
       </div>
-
       <div className="">
-          <p> Bugs, comentários ou sugestões? </p> <br />
-          <a href="mailto: stefantleal14@gmail.com">Me mande um email!</a>
-        </div>
+        <p> Bugs, comentários ou sugestões? </p> <br />
+        <a href="mailto: stefantleal14@gmail.com">Me mande um email!</a>
+      </div>
       <p>
         Quer mostrar como está a situação do covid para amigos/familiares?
         Clique aqui para compartilhar!

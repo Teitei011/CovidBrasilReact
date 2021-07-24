@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useParams, useHistory } from "react-router-dom";
 
 import {
   FacebookIcon,
@@ -50,6 +51,8 @@ const Wrapper = styled.div`
 `;
 
 const Footer = ({ data, path }) => {
+  const { id } = useParams();
+
   let dia = new Date();
   let mes = dia.getMonth() + 1;
   let diaAtual = dia.getDate();
@@ -67,8 +70,9 @@ const Footer = ({ data, path }) => {
   let diaFinal = diaAtual + "/" + mes + "/" + dia.getFullYear();
 
   let url = path;
-  if (path === undefined) {
-    url = "Brasil";
+  if (id === undefined) {
+    path = path.replace("undefined", "Brasil")
+    url = path
   }
 
   return (
@@ -100,35 +104,35 @@ const Footer = ({ data, path }) => {
       </p>
       <div className="socials">
         <FacebookShareButton
-          url={path}
+          url={url}
           className="Demo__some-network__share-button"
         >
           <FacebookIcon round={true} />
         </FacebookShareButton>
 
         <RedditShareButton
-          url={path}
+          url={url}
           className="Demo__some-network__share-button"
         >
           <RedditIcon round={true} />
         </RedditShareButton>
 
         <TelegramShareButton
-          url={path}
+          url={url}
           className="Demo__some-network__share-button"
         >
           <TelegramIcon round={true} />
         </TelegramShareButton>
 
         <TwitterShareButton
-          url={path}
+          url={url}
           className="Demo__some-network__share-button"
         >
           <TwitterIcon round={true} />
         </TwitterShareButton>
 
         <WhatsappShareButton
-          url={path}
+          url={url}
           className="Demo__some-network__share-button"
         >
           <WhatsappIcon round={true} />

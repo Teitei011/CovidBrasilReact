@@ -119,7 +119,7 @@ const Vaccines = () => {
         <br />
       </Container>
 
-      <VaccineCardInfo data={data} />
+      <VaccineCardInfo style={{ "margin-top": "5rem" }} data={data} />
 
       {isLoading ? (
         ""

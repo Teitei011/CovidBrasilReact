@@ -71,8 +71,8 @@ const GraphsCovidComponent = ({ titulo, dados }) => {
         titulo={`Segunda Dose: ${titulo} %`}
         label={["Vacinados", "Não vacinados"]}
         dados={secondDoseData}
-        backgroundColor={["rgba(38, 39, 39, 1)", "rgba(52, 183, 251, 0)"]}
-        borderColor={"rgba(38, 39, 39, 1)"}
+        backgroundColor={["rgba(255,99,132,1)", "rgba(52, 183, 251, 0)"]}
+        borderColor={"rgba(255,99,132,1)"}
       />
       <BarChart
         titulo={`Primeira Dose: ${titulo}`}
@@ -85,8 +85,8 @@ const GraphsCovidComponent = ({ titulo, dados }) => {
         titulo={`Segunda Dose: ${titulo}`}
         label={date}
         dados={vaccinated_second}
-        backgroundColor={["rgba(38, 39, 39, 1)", "rgba(52, 183, 251, 0)"]}
-        borderColor={"rgba(38, 39, 39, 1)"}
+        backgroundColor={["rgba(255,99,132,1)", "rgba(52, 183, 251, 0)"]}
+        borderColor={"rgba(255,99,132,1)"}
       />
       <BarChart
         titulo={`Doses diárias: ${titulo}`}
@@ -99,8 +99,8 @@ const GraphsCovidComponent = ({ titulo, dados }) => {
         titulo={`Doses diárias (2 dose): ${titulo}`}
         label={date}
         dados={daily_second_vaccine}
-        backgroundColor={["rgba(38, 39, 39, 1)", "rgba(52, 183, 251, 0)"]}
-        borderColor={"rgba(38, 39, 39, 1)"}
+        backgroundColor={["rgba(255,99,132,1)", "rgba(52, 183, 251, 0)"]}
+        borderColor={"rgba(255,99,132,1)"}
       />
       <BarChart
         titulo={`Média Móvel de Vacinados (1 dose): ${titulo}`}
@@ -113,8 +113,8 @@ const GraphsCovidComponent = ({ titulo, dados }) => {
         titulo={`Média Móvel de Vacinados (2 dose): ${titulo} `}
         label={date}
         dados={vaccinated_second_moving_average}
-        backgroundColor={["rgba(38, 39, 39, 1)", "rgba(52, 183, 251, 0)"]}
-        borderColor={"rgba(38, 39, 39, 1)"}
+        backgroundColor={["rgba(255,99,132,1)", "rgba(52, 183, 251, 0)"]}
+        borderColor={"rgba(255,99,132,1)"}
       />
     </Container>
   );
